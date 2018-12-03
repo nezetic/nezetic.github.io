@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="generator" content="Hakyll"/>
+    <title>NeZetiC.net - Apache: Bot? No, thank you margaret</title>
+    <link rel="stylesheet" type="text/css" href="../../css/default.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/lightbox.css"/>
+    <link rel="alternate" type="application/atom+xml" title="NeZetiC.net - Atom 1.0" href="../../atom.xml"/>
+    <link rel="alternate" type="application/rss+xml" title="NeZetiC.net - RSS" href="../../rss.xml"/>
+    <link href="http://fonts.googleapis.com/css?family=Finger+Paint" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="../../js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lightbox-2.6.min.js"></script>
+    <script type="text/javascript" src="../../js/main.js"></script>
+  </head>
+  <body>
+    <div id="main">
+      <div id="header">
+        <a href="../../">NeZetiC.net</a>
+      </div>
+      <div id="sidebar">
+        <h1 id="navigation">Navigation</h1>
+        <p>
+          <a href="../../">accueil</a>
+          <a href="../../articles/">articles</a>
+          <a href="../../contact/">contact</a>
+          <a href="../../about/">a propos</a>
+        </p>
+        <h1 id="projects">Projects</h1>
+        <p>
+          <a href="../../projects/tremgen/">TremGen</a>
+          <a href="../../projects/baldr/">Baldr</a>
+          <a href="../../projects/eyebo/">EyeBO</a>
+          <a href="../../projects/imsekr/">ImSekR</a>
+        </p>
+        <p>
+          <a href="../../rss.xml" title="RSS Flux">
+            <img src="../../images/rss-small.png" alt="“logo”"/>
+          </a>
+        </p>
+      </div>
+      <div id="content">
+        <div id="posts">
+          <ul class="posts">
+            <li class="entry">
+              <h2 class="entrytitle">
+                <a href="../../posts/2007-03-03-Apache_Bot_No_Thank_you/">Apache: Bot? No, thank you margaret</a>
+              </h2>
+              <div class="entrybody">
+                <p>Possédant un serveur de développement sous OpenBSD, je suis confronté régulièrement à un afflue d’erreurs dans mes logs d’apache.<br/>
+Il s’agit la plupart du temps de “page not found” générés par des robots qui explorent le net à la recherche d’applications web mal configurées ou plus simplement pas à jour.</p>
+                <p>Ce n’est pas bien gênant, mais si l’on peut l‘éviter, pourquoi ne pas le faire ?<br/>
+                  <br/>
+J’ai donc réalisé un petit <a href="../../files/apablock.rb">script</a> sans prétention qui a pour mission de bannir la vermine.</p>
+                <p>Celui-ci est très simple, ne demande que l’interpréteur ruby d’installé sur la machine, et utilise par défaut Packet Filter (le firewall d’OpenBSD) pour bannir les IP.</p>
+                <p>On peut néanmoins très facilement l’adapter, en changeant les quelques constantes au début du script :</p>
+                <pre>
+                  <code>LOGFILE = "/var/www/logs/error_log"
+BANLOG = "/var/log/banlog"
+FCMD = "pfctl -t bruteforce -T add"
+EXIP = ["10.0.0.0/8","127.0.0.0/8","172.16.0.0/12","192.168.0.0/16"]
+MRATE = "3/10" # n/m : a max of n try in m seconds</code>
+                </pre>
+                <p>Ce n’est certes pas une solution miracle, encore moins révolutionnaire, mais elle a le mérite de marcher et de combler mes attentes.</p>
+                <p>
+                  <a href="../../files/apablock.rb">Download</a>
+                </p>
+                <div class="signature">
+                  <p>par <em>Cédric TESSIER</em> le <strong>03/03/2007</strong></p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id="footer">
+                Site généré par <a href="http://jaspervdj.be/hakyll/">hakyll</a>.
+            </div>
+    </div>
+  </body>
+</html>

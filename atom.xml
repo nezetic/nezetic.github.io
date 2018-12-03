@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>NeZetiC.net feed</title>
+    <link href="http://www.nezetic.net/atom.xml" rel="self" />
+    <link href="http://www.nezetic.net" />
+    <id>http://www.nezetic.net/atom.xml</id>
+    <author>
+        <name>Cédric</name>
+        <email>nezetic @ gmail D0T com</email>
+    </author>
+    <updated>2007-08-22T00:00:00Z</updated>
+    <entry>
+    <title>SGI O2 Overclocking : de R10K à R12K</title>
+    <link href="http://www.nezetic.net/posts/2007-08-22-SGI_O2_Overcloacking/index.html" />
+    <id>http://www.nezetic.net/posts/2007-08-22-SGI_O2_Overcloacking/index.html</id>
+    <published>2007-08-22T00:00:00Z</published>
+    <updated>2007-08-22T00:00:00Z</updated>
+    <summary type="html">Remplacement d'un CPU MIPS R10K par un R12K</summary>
+</entry>
+<entry>
+    <title>My precious...</title>
+    <link href="http://www.nezetic.net/posts/2007-07-16-My_precious/index.html" />
+    <id>http://www.nezetic.net/posts/2007-07-16-My_precious/index.html</id>
+    <published>2007-07-16T00:00:00Z</published>
+    <updated>2007-07-16T00:00:00Z</updated>
+    <summary type="html">Ouverture de la section collection</summary>
+</entry>
+<entry>
+    <title>Apache, https et reverse proxy</title>
+    <link href="http://www.nezetic.net/posts/2007-04-13-Apache_https_reverse_proxy/index.html" />
+    <id>http://www.nezetic.net/posts/2007-04-13-Apache_https_reverse_proxy/index.html</id>
+    <published>2007-04-13T00:00:00Z</published>
+    <updated>2007-04-13T00:00:00Z</updated>
+    <summary type="html">Reverse proxy HTTPS avec Apache</summary>
+</entry>
+<entry>
+    <title>C'est le printemps !</title>
+    <link href="http://www.nezetic.net/posts/2007-03-28-SpringTime/index.html" />
+    <id>http://www.nezetic.net/posts/2007-03-28-SpringTime/index.html</id>
+    <published>2007-03-28T00:00:00Z</published>
+    <updated>2007-03-28T00:00:00Z</updated>
+    <summary type="html">Refonte du site</summary>
+</entry>
+<entry>
+    <title>Apache: Bot? No, thank you margaret</title>
+    <link href="http://www.nezetic.net/posts/2007-03-03-Apache_Bot_No_Thank_you/index.html" />
+    <id>http://www.nezetic.net/posts/2007-03-03-Apache_Bot_No_Thank_you/index.html</id>
+    <published>2007-03-03T00:00:00Z</published>
+    <updated>2007-03-03T00:00:00Z</updated>
+    <summary type="html">Script pour bloquer automatiquement les scans des web robots</summary>
+</entry>
+<entry>
+    <title>SPARCstation 1</title>
+    <link href="http://www.nezetic.net/posts/2006-09-04-Sparcstation1/index.html" />
+    <id>http://www.nezetic.net/posts/2006-09-04-Sparcstation1/index.html</id>
+    <published>2006-09-04T00:00:00Z</published>
+    <updated>2006-09-04T00:00:00Z</updated>
+    <summary type="html">Article sur la Sun SPARCstation 1</summary>
+</entry>
+<entry>
+    <title>Allez EyeBO, va chercher...</title>
+    <link href="http://www.nezetic.net/posts/2006-07-26-GoEyeBo/index.html" />
+    <id>http://www.nezetic.net/posts/2006-07-26-GoEyeBo/index.html</id>
+    <published>2006-07-26T00:00:00Z</published>
+    <updated>2006-07-26T00:00:00Z</updated>
+    <summary type="html">Présentation du projet EyeBO</summary>
+</entry>
+<entry>
+    <title>OpenBSD 101, c'est bien</title>
+    <link href="http://www.nezetic.net/posts/2006-07-09-OpenBSD101/index.html" />
+    <id>http://www.nezetic.net/posts/2006-07-09-OpenBSD101/index.html</id>
+    <published>2006-07-09T00:00:00Z</published>
+    <updated>2006-07-09T00:00:00Z</updated>
+    <summary type="html">Découverte du site OpenBSD 101</summary>
+</entry>
+<entry>
+    <title>Sources d'ImSekR disponibles</title>
+    <link href="http://www.nezetic.net/posts/2006-07-07-Welcome_ImSekR/index.html" />
+    <id>http://www.nezetic.net/posts/2006-07-07-Welcome_ImSekR/index.html</id>
+    <published>2006-07-07T00:00:00Z</published>
+    <updated>2006-07-07T00:00:00Z</updated>
+    <summary type="html">Annonce de la disponibilité des sources d'ImSekR</summary>
+</entry>
+<entry>
+    <title>Adaptateur DB25/DB9 pour liaisons séries</title>
+    <link href="http://www.nezetic.net/posts/2006-07-07-Adapter_DB25_DB9/index.html" />
+    <id>http://www.nezetic.net/posts/2006-07-07-Adapter_DB25_DB9/index.html</id>
+    <published>2006-07-07T00:00:00Z</published>
+    <updated>2006-07-07T00:00:00Z</updated>
+    <summary type="html">Réaliser un adaptateur DB25/DB9 pour liaisons séries</summary>
+</entry>
+
+</feed>

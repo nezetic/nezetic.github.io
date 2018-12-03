@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="generator" content="Hakyll"/>
+    <title>NeZetiC.net - SGI O2 Overclocking : de R10K à R12K</title>
+    <link rel="stylesheet" type="text/css" href="../../css/default.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/lightbox.css"/>
+    <link rel="alternate" type="application/atom+xml" title="NeZetiC.net - Atom 1.0" href="../../atom.xml"/>
+    <link rel="alternate" type="application/rss+xml" title="NeZetiC.net - RSS" href="../../rss.xml"/>
+    <link href="http://fonts.googleapis.com/css?family=Finger+Paint" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="../../js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lightbox-2.6.min.js"></script>
+    <script type="text/javascript" src="../../js/main.js"></script>
+  </head>
+  <body>
+    <div id="main">
+      <div id="header">
+        <a href="../../">NeZetiC.net</a>
+      </div>
+      <div id="sidebar">
+        <h1 id="navigation">Navigation</h1>
+        <p>
+          <a href="../../">accueil</a>
+          <a href="../../articles/">articles</a>
+          <a href="../../contact/">contact</a>
+          <a href="../../about/">a propos</a>
+        </p>
+        <h1 id="projects">Projects</h1>
+        <p>
+          <a href="../../projects/tremgen/">TremGen</a>
+          <a href="../../projects/baldr/">Baldr</a>
+          <a href="../../projects/eyebo/">EyeBO</a>
+          <a href="../../projects/imsekr/">ImSekR</a>
+        </p>
+        <p>
+          <a href="../../rss.xml" title="RSS Flux">
+            <img src="../../images/rss-small.png" alt="“logo”"/>
+          </a>
+        </p>
+      </div>
+      <div id="content">
+        <div id="posts">
+          <ul class="posts">
+            <li class="entry">
+              <h2 class="entrytitle">
+                <a href="../../posts/2007-08-22-SGI_O2_Overcloacking/">SGI O2 Overclocking : de R10K à R12K</a>
+              </h2>
+              <div class="entrybody">
+                <h2 id="introduction">Introduction</h2>
+                <p>
+                  <a href="../../images/44.jpg" title="Mon O2 en PLF (une tradition)">
+                    <img src="../../images/44t.jpg" alt="img_right"/>
+                  </a>
+                </p>
+                <p>Passionné de machines SGI, j’ai la chance de posséder ce que je considère comme l’une des plus jolies stations Unix jamais créées, la SGI O2.</p>
+                <p>Petite, peu gourmande en énergie, dotée d’un hardware bien conçu et relativement performant pour une station qui représentait l’entrée de gamme chez Silicon Graphics, elle s’est plutôt bien vendu et on peut aujourd’hui en trouver très facilement, si l’on est prêt à y mettre le prix…</p>
+                <p>En effet, le marché de l’occasion étant ce qu’il est, les modèles les plus sympas, car les plus performants, ceux de la fin du cycle de commercialisation, les plus rares, car les moins vendus, se négocient parfois à des prix exorbitants.</p>
+                <p>Mais tout espoir n’est pas perdu pour le pauvre geek sans le sou.</p>
+                <h2 id="a-new-hope">A new hope</h2>
+                <p>Lorsqu’on manque de puissance CPU, plusieurs solutions s’offrent à nous. Acheter un nouveau CPU plus puissant, mais généralement onéreux. Ou alors, tenter le diable en essayant de pousser celui que l’on a sous la main dans ses derniers retranchements (via notamment une augmentation sauvage de sa fréquence).</p>
+                <p>Dans le cas de l’O2, une troisième solution est possible: le recyclage.</p>
+                <p>On prend du vieux pas cher et l’on en fait du <del>neuf</del> moins vieux.</p>
+                <p>Ce que je propose, tout simplement transformer une O2 R10K 225/250 Mhz en O2 R12K 300 Mhz pour le prix d’un module CPU d’Octane, que l’on trouve aujourd’hui très facilement et pour presque rien.</p>
+                <p>Intéressé ? Et bien, allons-y.</p>
+                <h2 id="the-o2-strike-back">The O2 strike back</h2>
+                <p>Première chose à faire avant de partir la conquête de l’univers, s’assurer que l’on a les bonnes bases.</p>
+                <p>On ne s’intéressera ici qu‘à la quête de la puissance ultime. Si votre O2 n’est armé que d’un processeur R5K, il va falloir quand même investir un minimum. Si l’argent vous manque vraiment, il faudra oublier vos rêves de puissance, à moins que le passage de R5K180 Mhz à R5K200 Mhz suffise à combler vos attentes (<a href="http://132.180.68.114/~gemm/overclocking_o2_seite2.html">voir ici</a>).</p>
+                <p>Ce qu’il vous faut :</p>
+                <ul>
+                  <li>Une O2 avec un processeur R10K225 ou R10K250</li>
+                  <li>Un module CPU d’Octane R12K270 ou R12K300</li>
+                  <li>Un tournevis cruciforme pas trop gros ni trop petit</li>
+                  <li>Une clé Allen de 5 mm</li>
+                  <li>De quoi souder à l‘étain</li>
+                  <li>Une bonne vue et des mains qui ne tremblent pas</li>
+                </ul>
+                <p>Pour les processeurs, on peut en trouver assez facilement sur les divers sites de ventes. Pour les outils, c’est du très classique. En ce qui concerne le dernier point, en cas de soucis, j’ai bien peur que vous deviez faire appel à votre fidèle Wookiees.</p>
+                <p>Bon, maintenant que nous avons le matériel, passons à un peu de théorie.</p>
+                <h2 id="knowledge-is-power">Knowledge is power</h2>
+                <p>C’est en parcourant le forum de <a href="http://forums.nekochan.net/">nekochan</a> que j’ai découvert un jour que l’on pouvait utiliser un processeur R12K sur un module CPU d’O2 R10K.</p>
+                <p>En effet, sauf pour le R12K400 Mhz, les processeurs d’O2 R10/12K ne sont pas soudés sur leurs cartes, mais simplement maintenus sur un slot par le radiateur.</p>
+                <p>Mieux encore, il existe une parfaite compatibilité des pins entre les R10K de génération 225 et 250 Mhz et les R12K 270 et 300 Mhz.</p>
+                <p>Ceci implique donc que l’on peut mettre un processeur R12K, prélevé dans un module CPU d’Octane par exemple, dans un module CPU d’O2 destiné à l’origine à un R10K. Si ce n’est pas beau ça.</p>
+                <p>Seul problème, notre pauvre CPU R12K va alors se retrouver à la même fréquence que son prédécesseur.</p>
+                <p>Il va donc falloir ramener celui-ci dans sa fréquence réelle en modifiant les caractéristiques de la carte CPU.</p>
+                <p>Suivant les cas, on va être amené à jouer avec 2 valeurs :</p>
+                <ul>
+                  <li>Un coefficient multiplicateur (CM)</li>
+                  <li>La fréquence du SysClock</li>
+                </ul>
+                <p>En effet, la fréquence du processeur est calculée suivant une formule simple : SysClock * CM.</p>
+                <p>Quelques exemples pour éclaircir tout cela :</p>
+                <table>
+                  <thead>
+                    <tr class="header">
+                      <th style="text-align: left;">CPU Type</th>
+                      <th style="text-align: left;">CPU Freq</th>
+                      <th style="text-align: left;">CM</th>
+                      <th style="text-align: left;">SysClock</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="odd">
+                      <td style="text-align: left;">R10K</td>
+                      <td style="text-align: left;">225 Mhz</td>
+                      <td style="text-align: left;">2.5</td>
+                      <td style="text-align: left;">90 Mhz</td>
+                    </tr>
+                    <tr class="even">
+                      <td style="text-align: left;">R10K</td>
+                      <td style="text-align: left;">250 Mhz</td>
+                      <td style="text-align: left;">2.5</td>
+                      <td style="text-align: left;">100 Mhz</td>
+                    </tr>
+                    <tr class="odd">
+                      <td style="text-align: left;">R12K</td>
+                      <td style="text-align: left;">270 Mhz</td>
+                      <td style="text-align: left;">3</td>
+                      <td style="text-align: left;">90 Mhz</td>
+                    </tr>
+                    <tr class="even">
+                      <td style="text-align: left;">R12K</td>
+                      <td style="text-align: left;">300 Mhz</td>
+                      <td style="text-align: left;">3</td>
+                      <td style="text-align: left;">100 Mhz</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p>Cette table montre bien une chose : la manipulation ne sera pas la même suivant le module processeur de départ et celui d’arrivée.</p>
+                <p>Dans un cas, il suffira de modifier le coefficient, dans l’autre il faudra en plus overclocker le SysClock.</p>
+                <h2 id="welcome-in-the-real-world">Welcome in the real world</h2>
+                <h3 id="modification-du-coefficient">Modification du coefficient</h3>
+                <p>
+                  <a href="../../images/38.jpg" title="Carte module CPU O2 R10K225/250">
+                    <img src="../../images/38t.jpg" alt="img_right"/>
+                  </a> Cette opération est la plus simple. La valeur du coefficient est déterminée par la position de résistances sur une extrémité de la carte CPU (voir encadré rouge sur l’image).</p>
+                <p>Pour passer de 2.5 à 3, il va falloir en bouger 2.</p>
+                <p>Voici un relevé des résistances sur 2 modules CPU de coefficient multiplicateur différent :</p>
+                <p>
+                  <strong>O2 R10K 225 Mhz</strong>
+                </p>
+                <pre>
+                  <code>R508
+           R510
+R514
+           R517
+           R523
+           R530
+R534
+           R537
+R540
+           R541
+R544
+R547
+           R548
+           R550
+           R552
+           R554
+           R556
+R559</code>
+                </pre>
+                <p>
+                  <strong>O2 R12K 270 Mhz</strong>
+                </p>
+                <pre>
+                  <code>R508
+           R510
+R514
+           R517
+           R523
+           R530
+R534
+R538
+R540
+           R541
+R544
+R547
+           R548
+           R550
+R553
+           R554
+           R556
+R559</code>
+                </pre>
+                <p>On voit clairement ici les 2 résistances à modifier. Il va falloir les déplacer de <strong>R537</strong> à <strong>R538</strong> et de <strong>R552</strong> à <strong>R553</strong>.</p>
+                <h3 id="modification-du-sysclock">Modification du SysClock</h3>
+                <p>On peut là aussi modifier la fréquence du SysClock de 90 Mhz à 100 Mhz simplement en changeant de place 2 résistances.</p>
+                <p>L’opération est juste rendue plus délicate par la position de celles-ci sur la carte qui les rend plus difficiles à manipuler.<br/>
+                </p>
+                <p>
+                  <a href="../../images/54.jpg" title="O2 R12K270 Mhz -&gt; R12K300 Mhz">
+                    <img src="../../images/54t.jpg" alt="img_right"/>
+                  </a>
+                  <br/>
+Au fil de mes bidouilles, je me suis aperçu qu’SGI avait changé le nom de ces résistances entre 2 générations de cartes CPU.</p>
+                <p>Plutôt que de donner uniquement des noms, un membre de <a href="http://www.sunwizard.net/">Sunwizard.net</a> m’a gentiment fourni une photo haute résolution de la carte, à partir de laquelle j’ai réalisé le schéma ci-contre.</p>
+                <p>Celui montre les résistances dans la position finale (le Sysclock à 100 Mhz donc), avec la modification effectuée mise en relief par des flèches (sur cette carte, elles ont été déplacées de <strong>R644</strong> à <strong>R646</strong> et de <strong>R649</strong> à <strong>R650</strong>).</p>
+                <h2 id="im-your-father">I’m your father</h2>
+                <p>Pour passer de la théorie à la pratique, quelques recommandations s’imposent.</p>
+                <p>Une carte CPU comme celle de l’O2 est <strong>très sensible</strong> aux décharges <strong>d‘électricité statique</strong>.</p>
+                <p>Il faut donc faire très attention en là manipulant, éviter de mettre ses doigts sur les composants et prendre soin de se décharger à la terre (via une prise de courant par exemple) si l’on ne possède pas de bracelet antistatique.</p>
+                <p>De plus, lorsqu’on démonte les radiateurs des modules, il arrive que de petites particules de métal se détachent au niveau des ressorts. Faire très attention à ne pas en laisser traîner sur la carte.</p>
+                <p>Enfin, on ne manipule pas des composants CMS comme on ressoude l’alimentation du grille-pain de tante Jeannine. Ceux-ci sont très petits, et demandent du doigté et un matériel correct pour les manipuler. Si l’on ne sait pas souder convenablement et vérifier les contacts, ne pas se lancer dans la manipulation seul au risque de tout casser.</p>
+                <p>Dans tous les cas, je ne serais <strong>aucunement responsable</strong> si un module CPU refuse de fonctionner après manipulation.</p>
+                <h2 id="just-a-little-hack">Just a little hack</h2>
+                <p>Reste maintenant à détailler un peu comment effectuer la manipulation.</p>
+                <p>
+                  <a href="../../images/60.jpg" title="Module CPU Octane R12K">
+                    <img src="../../images/60t.jpg" alt="img_right"/>
+                  </a> On va commencer par démonter le module CPU de l’Octane, afin de récupérer le R12K qui sommeil en lui. Pour cela, il suffit de dévisser les 2 petites vis sur le côté du module, ainsi que les supports s’ils sont encore présents sous celui-ci avec un tournevis. Puis, ce sera au tour des 4 grosses vis qui maintiennent le radiateur avec l’aide de la clé Allen. Après avoir délicatement retiré celui-ci, le processeur sera clairement visible sur son socket, <strong>sauf</strong>, et là <strong>attention</strong> lorsque celui-ci reste collé par la patte thermique sur le radiateur !</p>
+                <p>On va ensuite s’attaquer à l’O2. La première chose à faire est de sortir le support de carte PCI. Pour cela, le plus simple (et le plus rapide) reste de retirer 3 vis de la façade, les 2 qui tiennent le support, ainsi que celle juste en dessous qui maintient un cache noir, de manière à pouvoir tordre un peu le plastique pour faire de la place pour le support.</p>
+                <p>
+                  <a href="../../images/59.jpg" title="Module CPU O2 R10K">
+                    <img src="../../images/59t.jpg" alt="img_left"/>
+                  </a> On a alors accès au module processeur. Pour l’extraire, il suffit de dévisser les 4 petites vis brillantes à ses extrémités, puis de tirer dessus délicatement.</p>
+                <p>Comme sur le module de l’octane, il reste à dévisser les 4 grosses vis du radiateur avec la clé Allen, et on a accès au processeur R10K.</p>
+                <p>Il suffit alors d‘échanger les 2 processeurs en respectant le détrompeur, et de remettre délicatement le radiateur en place.</p>
+                <p>À cette étape de la manipulation, on a un module CPU d’O2 R12K fonctionnel, mais avec une mauvaise fréquence.</p>
+                <p>Maintenant que le radiateur est en place, poser le module sur celui-ci, et effectuer les manipulations sur les résistances qui sont pour vous nécessaires.</p>
+                <p>Enfin, on remonte tout cela, en prenant bien soin de vérifier que l’on a rien oublié.</p>
+                <h2 id="a-new-born">A new born</h2>
+                <p>Au prochain redémarrage, si tout s’est bien passé, voici ce qu’on obtient :</p>
+                <pre>
+                  <code>CPU: MIPS R12000 Processor Chip Revision: 2.3 
+FPU: MIPS R12010 Floating Point Chip Revision: 0.0 
+1 300 MHZ IP32 Processor 
+Main memory size: 1024 Mbytes</code>
+                </pre>
+                <p>Même si elle est risquée, cette bidouille du module CPU vaut vraiment le coup, puisque l’on obtient en fin de compte pour un prix réduit un module R12K ayant les mêmes caractéristiques techniques que celui vendu par SGI.</p>
+                <p>Les performances sont donc au rendez-vous.</p>
+                <p>
+                  <strong>Avant</strong> :</p>
+                <pre>
+                  <code>CPU: MIPS R5000 300 MHZ 
+Dhrystones : VAX MIPS rating =    379.343 
+Linpack : Unrolled Double  Precision 44572 Kflops 
+Whetstone : MWIPS  392.908</code>
+                </pre>
+                <p>
+                  <strong>Maintenant</strong> :</p>
+                <pre>
+                  <code>CPU: MIPS R12000 300 MHZ 
+Dhrystones : VAX MIPS rating =    594.373 
+Linpack : Unrolled Double  Precision 120207 Kflops 
+Whetstone : MWIPS  732.340</code>
+                </pre>
+                <p>Le tout pour une quarantaine d’euros en ce qui me concerne (ayant déjà à disposition un module CPU d’octane, je n’ai acheté qu’une carte mère R10K225 pour l’O2).</p>
+                <p>Voilà, il ne me reste plus qu‘à souhaiter bonne chance à ceux qui tenteront la bidouille.</p>
+                <blockquote>
+                  <p>
+                    <strong>Quelques liens</strong>
+                    <br/>
+                    <a href="http://forums.nekochan.net/viewtopic.php?f=3&amp;t=2348&amp;start=30">forums.nekochan.net/viewtopic.php?f=3&amp;t=2348&amp;start=30</a>
+                    <br/>
+                    <a href="http://www.sunwizard.net/forum/viewtopic.php?t=2022">www.sunwizard.net/forum/viewtopic.php?t=2022</a>
+                    <br/>
+                    <a href="http://www.sunwizard.net/forum/viewtopic.php?t=2052">www.sunwizard.net/forum/viewtopic.php?t=2052</a>
+                  </p>
+                  <p>
+                    <strong>Remerciements</strong>
+                    <br/>
+Merci à chicago-joe, membre de Nekochan, grand maître vénéré de la bidouille SGI, sans qui rien de tout cela n’aurait été possible.<br/>
+Merci aussi à BinusFr, membre de Sunwizard, d’avoir démonté son O2 juste pour quelques photos</p>
+                </blockquote>
+                <div class="signature">
+                  <p>par <em>Cédric TESSIER</em> le <strong>22/08/2007</strong></p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id="footer">
+                Site généré par <a href="http://jaspervdj.be/hakyll/">hakyll</a>.
+            </div>
+    </div>
+  </body>
+</html>

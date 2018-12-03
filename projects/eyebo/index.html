@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="generator" content="Hakyll"/>
+    <title>NeZetiC.net - EyeBO</title>
+    <link rel="stylesheet" type="text/css" href="../../css/default.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/lightbox.css"/>
+    <link rel="alternate" type="application/atom+xml" title="NeZetiC.net - Atom 1.0" href="../../atom.xml"/>
+    <link rel="alternate" type="application/rss+xml" title="NeZetiC.net - RSS" href="../../rss.xml"/>
+    <link href="http://fonts.googleapis.com/css?family=Finger+Paint" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="../../js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lightbox-2.6.min.js"></script>
+    <script type="text/javascript" src="../../js/main.js"></script>
+  </head>
+  <body>
+    <div id="main">
+      <div id="header">
+        <a href="../../">NeZetiC.net</a>
+      </div>
+      <div id="sidebar">
+        <h1 id="navigation">Navigation</h1>
+        <p>
+          <a href="../../">accueil</a>
+          <a href="../../articles/">articles</a>
+          <a href="../../contact/">contact</a>
+          <a href="../../about/">a propos</a>
+        </p>
+        <h1 id="projects">Projects</h1>
+        <p>
+          <a href="../../projects/tremgen/">TremGen</a>
+          <a href="../../projects/baldr/">Baldr</a>
+          <a href="../../projects/eyebo/">EyeBO</a>
+          <a href="../../projects/imsekr/">ImSekR</a>
+        </p>
+        <p>
+          <a href="../../rss.xml" title="RSS Flux">
+            <img src="../../images/rss-small.png" alt="“logo”"/>
+          </a>
+        </p>
+      </div>
+      <div id="content">
+        <h1>EyeBO</h1>
+        <div class="entrybody">
+          <hr/>
+          <p>
+            <strong>Status</strong>: Abandonné (depuis 2007)</p>
+          <hr/>
+          <h2 id="introduction">Introduction</h2>
+          <p>J’ai récupéré il y a quelque temps une machine assez marrante, une Eyebox One, de la société RightVision.</p>
+          <p>Bien que peu puissante (mais rien n’empêche de changer la carte-mère), elle présente l’intérêt d‘être <em>rackable</em> (format 2U), silencieuse, et doté d’une consommation ridicule.<br/>
+            <a href="../../images/14.jpg">
+              <img src="../../images/14t.jpg" alt="img_right"/>
+            </a> Quel rapport avec ce nouveau projet, EyeBO ?</p>
+          <p>Et bien en plus de ces qualités, cette box possède un écran LCD 20×4 avec <em>keypad</em>, 2 <em>bargraphs</em>, et 3 <em>leds</em>, ayant chacune 3 couleurs possibles.</p>
+          <p>Problème, ce LCD n’est supporté par aucun des projets libres existants, et est piloté par un binaire propriétaire dont la source n’est pas disponible.</p>
+          <h2 id="eyebo">EyeBO</h2>
+          <p>EyeBO est donc un driver libre pour le projet <a href="http://lcdproc.com">LCDproc</a> qui devrait permettre à terme de contrôler complètement le LCD, ainsi que les différents petits gadgets qui l’accompagnent.</p>
+          <h2 id="avancement-du-projet">Avancement du projet</h2>
+          <p>
+            <strong>
+              <em>14/10/06</em>
+            </strong>
+            <br/>
+Le driver est désormais disponible dans la version stable de lcdproc.</p>
+          <p>
+            <strong>
+              <em>09/09/06</em>
+            </strong>
+            <br/>
+Vacances obligent, c’est avec quelques jours de retard que j’annonce qu’EyeBO a été intégré au projet <a href="http://lcdproc.com">LCDproc</a>.<br/>
+On peut le compiler directement depuis la version CVS disponible sur <a href="http://sourceforge.net/cvs/?group_id=119">sourceforge.net</a>. La <a href="http://lcdproc.sourceforge.net/docs/current-user.html#eyeboxone">documentation</a> est-elle aussi en ligne.</p>
+          <p>
+            <strong>
+              <em>19/08/06</em>
+            </strong>
+            <br/>
+Une nouvelle version est disponible, avec pas mal de bonnes choses, dont une documentation pour le driver.<br/>
+Le tout est à télécharger <a href="../../files/LCDproc_Eyebox-Drivers-190806.tgz">ici même</a>.</p>
+          <p>
+            <strong>
+              <em>06/08/06</em>
+            </strong>
+            <br/>
+J’ai mis en ligne une première version du driver, à télécharger <a href="../../files/LCDproc_Eyebox-Drivers.tgz">ici même</a>.</p>
+          <p>
+            <strong>
+              <em>26/07/06</em>
+            </strong>
+            <br/>
+Grâce à un petit patch pour le client LCDproc, celui-ci affiche maintenant la charge CPU totale, ainsi que la RAM utilisée, sur les 2 BarGraphs.</p>
+          <p>Ce patch est encore loin d‘être parfait (il existe encore un problème d’intervalle de mise à jour pour certains modes d’LCDproc), mais il a le mérite de s’intégrer facilement (et proprement) au projet existant.</p>
+          <p>
+            <a href="../../files/LcdprocOnEyeboxone_Overview_NeZetiC.mov">Vue d’ensemble du module LCD</a>
+            <br/>
+            <strong>
+              <em>24/07/06</em>
+            </strong>
+            <br/>
+J’ai déjà accompli pas mal de travail. Il existe désormais une version BETA (mais stable) d’EyeBO qui permet d’utiliser l‘écran LCD ainsi que le <em>Keypad</em> avec LCDproc.</p>
+          <p>Deux vidéos sont disponibles, (mal)filmées par mes soins, avec un simple APN :</p>
+          <p>
+            <a href="../../files/LcdprocOnEyeboxone_Overview_NeZetiC.mov">Démonstration du LCD</a>
+            <br/>
+            <a href="../../files/LcdprocOnEyeboxone_BarGraphs_NeZetiC.mov">Affichage de la charge CPU sur un <em>Bargraph</em></a>
+          </p>
+        </div>
+      </div>
+      <div id="footer">
+                Site généré par <a href="http://jaspervdj.be/hakyll/">hakyll</a>.
+            </div>
+    </div>
+  </body>
+</html>

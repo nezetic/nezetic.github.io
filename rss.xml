@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel>
+        <title>NeZetiC.net feed</title>
+        <link>http://www.nezetic.net</link>
+        <description>NeZetiC.net RSS feed</description>
+        <atom:link href="http://www.nezetic.net/rss.xml" rel="self" type="application/rss+xml"></atom:link>
+        <lastBuildDate>Wed, 22 Aug 2007 00:00:00 UT</lastBuildDate>
+        <item>
+    <title>SGI O2 Overclocking : de R10K à R12K</title>
+    <link>http://www.nezetic.net/posts/2007-08-22-SGI_O2_Overcloacking/index.html</link>
+    <description>Remplacement d'un CPU MIPS R10K par un R12K</description>
+    <pubDate>Wed, 22 Aug 2007 00:00:00 UT</pubDate>
+    <guid>http://www.nezetic.net/posts/2007-08-22-SGI_O2_Overcloacking/index.html</guid>
+    <dc:creator>Cédric</dc:creator>
+</item>
+<item>
+    <title>My precious...</title>
+    <link>http://www.nezetic.net/posts/2007-07-16-My_precious/index.html</link>
+    <description>Ouverture de la section collection</description>
+    <pubDate>Mon, 16 Jul 2007 00:00:00 UT</pubDate>
+    <guid>http://www.nezetic.net/posts/2007-07-16-My_precious/index.html</guid>
+    <dc:creator>Cédric</dc:creator>
+</item>
+<item>
+    <title>Apache, https et reverse proxy</title>
+    <link>http://www.nezetic.net/posts/2007-04-13-Apache_https_reverse_proxy/index.html</link>
+    <description>Reverse proxy HTTPS avec Apache</description>
+    <pubDate>Fri, 13 Apr 2007 00:00:00 UT</pubDate>
+    <guid>http://www.nezetic.net/posts/2007-04-13-Apache_https_reverse_proxy/index.html</guid>
+    <dc:creator>Cédric</dc:creator>
+</item>
+<item>
+    <title>C'est le printemps !</title>
+    <link>http://www.nezetic.net/posts/2007-03-28-SpringTime/index.html</link>
+    <description>Refonte du site</description>
+    <pubDate>Wed, 28 Mar 2007 00:00:00 UT</pubDate>
+    <guid>http://www.nezetic.net/posts/2007-03-28-SpringTime/index.html</guid>
+    <dc:creator>Cédric</dc:creator>
+</item>
+<item>
+    <title>Apache: Bot? No, thank you margaret</title>
+    <link>http://www.nezetic.net/posts/2007-03-03-Apache_Bot_No_Thank_you/index.html</link>
+    <description>Script pour bloquer automatiquement les scans des web robots</description>
+    <pubDate>Sat, 03 Mar 2007 00:00:00 UT</pubDate>
+    <guid>http://www.nezetic.net/posts/2007-03-03-Apache_Bot_No_Thank_you/index.html</guid>
+    <dc:creator>Cédric</dc:creator>
+</item>
+<item>
+    <title>SPARCstation 1</title>
+    <link>http://www.nezetic.net/posts/2006-09-04-Sparcstation1/index.html</link>
+    <description>Article sur la Sun SPARCstation 1</description>
+    <pubDate>Mon, 04 Sep 2006 00:00:00 UT</pubDate>
+    <guid>http://www.nezetic.net/posts/2006-09-04-Sparcstation1/index.html</guid>
+    <dc:creator>Cédric</dc:creator>
+</item>
+<item>
+    <title>Allez EyeBO, va chercher...</title>
+    <link>http://www.nezetic.net/posts/2006-07-26-GoEyeBo/index.html</link>
+    <description>Présentation du projet EyeBO</description>
+    <pubDate>Wed, 26 Jul 2006 00:00:00 UT</pubDate>
+    <guid>http://www.nezetic.net/posts/2006-07-26-GoEyeBo/index.html</guid>
+    <dc:creator>Cédric</dc:creator>
+</item>
+<item>
+    <title>OpenBSD 101, c'est bien</title>
+    <link>http://www.nezetic.net/posts/2006-07-09-OpenBSD101/index.html</link>
+    <description>Découverte du site OpenBSD 101</description>
+    <pubDate>Sun, 09 Jul 2006 00:00:00 UT</pubDate>
+    <guid>http://www.nezetic.net/posts/2006-07-09-OpenBSD101/index.html</guid>
+    <dc:creator>Cédric</dc:creator>
+</item>
+<item>
+    <title>Sources d'ImSekR disponibles</title>
+    <link>http://www.nezetic.net/posts/2006-07-07-Welcome_ImSekR/index.html</link>
+    <description>Annonce de la disponibilité des sources d'ImSekR</description>
+    <pubDate>Fri, 07 Jul 2006 00:00:00 UT</pubDate>
+    <guid>http://www.nezetic.net/posts/2006-07-07-Welcome_ImSekR/index.html</guid>
+    <dc:creator>Cédric</dc:creator>
+</item>
+<item>
+    <title>Adaptateur DB25/DB9 pour liaisons séries</title>
+    <link>http://www.nezetic.net/posts/2006-07-07-Adapter_DB25_DB9/index.html</link>
+    <description>Réaliser un adaptateur DB25/DB9 pour liaisons séries</description>
+    <pubDate>Fri, 07 Jul 2006 00:00:00 UT</pubDate>
+    <guid>http://www.nezetic.net/posts/2006-07-07-Adapter_DB25_DB9/index.html</guid>
+    <dc:creator>Cédric</dc:creator>
+</item>
+
+    </channel>
+</rss>

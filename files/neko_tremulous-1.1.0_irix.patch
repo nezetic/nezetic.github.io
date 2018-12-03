@@ -1,0 +1,170 @@
+--- tremulous/tremulous-1.1.0-src/Makefile	mardi 21 mars 2006, 23:28:25
++++ tremulous-mips/tremulous-1.1.0-src/Makefile	dimanche 11 février 2007, 01:14:50
+@@ -519,13 +519,16 @@
+ # SETUP AND BUILD -- IRIX
+ #############################################################################
+ 
+-ifeq ($(PLATFORM),irix)
++ifeq ($(PLATFORM),irix64)
+ 
+-  ARCH=mips  #default to MIPS
++  ARCH=mips
+ 
+-  CC=cc
+-  BASE_CFLAGS=-Dstricmp=strcasecmp -Xcpluscomm -woff 1185 -mips3 \
+-    -nostdinc -I. -I$(ROOT)/usr/include -DNO_VM_COMPILED
++  CC=c99
++  MKDIR=mkdir -p
++  
++  BASE_CFLAGS=-Dstricmp=strcasecmp -Xcpluscomm -woff 1185 -mips4 \
++    -nostdinc -I. -I$(ROOT)/usr/include -DNO_VM_COMPILED \
++    $(shell sdl-config --cflags) -DUSE_SDL_VIDEO=1 -DUSE_SDL_SOUND=1
+   RELEASE_CFLAGS=$(BASE_CFLAGS) -O3
+   DEBUG_CFLAGS=$(BASE_CFLAGS) -g
+ 
+@@ -533,8 +536,8 @@
+   SHLIBCFLAGS=
+   SHLIBLDFLAGS=-shared
+ 
+-  LDFLAGS=-ldl -lm
+-  CLIENT_LDFLAGS=-L/usr/X11/$(LIB) -lGL -lX11 -lXext -lm
++  LDFLAGS=-ldl -lm -lgen
++  CLIENT_LDFLAGS=-L/usr/X11/$(LIB) $(shell sdl-config --libs) -lGL -lX11 -lXext -lm -lgen
+ 
+ else # ifeq IRIX
+ 
+@@ -743,9 +746,14 @@
+ tools:
+ 	echo QVM tools not built when cross-compiling
+ else
+-tools:
++   ifeq ($(PLATFORM),irix64)
++   tools:
++	@echo QVM tools not built on IRIX
++   else
++   tools:
+ 	$(MAKE) -C $(TOOLSDIR)/lcc install
+ 	$(MAKE) -C $(TOOLSDIR)/asm install
++   endif
+ endif
+ 
+ DO_Q3LCC=$(Q3LCC) -o $@ $<
+@@ -1492,10 +1500,10 @@
+ 
+ clean2:
+ 	if [ -d $(B) ];then (find $(B) -name '*.d' -exec rm {} \;)fi
+-	rm -f $(Q3OBJ) $(Q3POBJ) $(Q3POBJ_SMP) $(Q3DOBJ) \
+-		$(GOBJ) $(CGOBJ) $(UIOBJ) \
+-		$(GVMOBJ) $(CGVMOBJ) $(UIVMOBJ)
+-	rm -f $(TARGETS)
++	 rm -f $(Q3OBJ) $(Q3POBJ) $(Q3POBJ_SMP) $(Q3DOBJ)
++	 rm -f $(MPGOBJ) $(Q3GOBJ) $(Q3CGOBJ) $(MPCGOBJ) $(Q3UIOBJ) $(MPUIOBJ)
++	 rm -f $(MPGVMOBJ) $(Q3GVMOBJ) $(Q3CGVMOBJ) $(MPCGVMOBJ) $(Q3UIVMOBJ) $(MPUIVMOBJ)
++	 rm -f $(TARGETS)
+ 
+ clean-debug:
+ 	$(MAKE) clean2 B=$(BD) CFLAGS="$(DEBUG_CFLAGS)"
+--- tremulous/tremulous-1.1.0-src/src/renderer/qgl.h	jeudi 29 décembre 2005, 01:58:58
++++ tremulous-mips/tremulous-1.1.0-src/src/renderer/qgl.h	dimanche 11 février 2007, 01:16:56
+@@ -73,7 +73,7 @@
+ #include <GL/fxmesa.h>
+ #endif
+ 
+-#elif defined( __sun )
++#elif defined( __sun ) || defined( __sgi )
+ #include <GL/gl.h>
+ #include <GL/glx.h>
+ 
+@@ -176,8 +176,7 @@
+ //===========================================================================
+ 
+ // non-windows systems will just redefine qgl* to gl*
+-#if !defined( _WIN32 ) && !defined(MACOS_X) && !defined( __linux__ ) && !defined( __FreeBSD__ ) && !defined(__sun) // rb010123
+-
++#if !defined( _WIN32 ) && !defined(MACOS_X) && !defined( __linux__ ) && !defined( __FreeBSD__ ) && !defined(__sun) && !defined(__sgi) // rb010123
+ #include "qgl_linked.h"
+ 
+ #elif (defined(MACOS_X) && !defined(USE_SDL_VIDEO))
+--- tremulous/tremulous-1.1.0-src/src/qcommon/q_platform.h	samedi 14 janvier 2006, 02:12:32
++++ tremulous-mips/tremulous-1.1.0-src/src/qcommon/q_platform.h	dimanche 11 février 2007, 01:12:03
+@@ -246,6 +246,22 @@
+ 
+ #endif
+ 
++//================================================================== IRIX ===
++
++#ifdef __sgi
++
++#define OS_STRING "irix"
++#define ID_INLINE __inline
++#define PATH_SEP '/'
++
++#define ARCH_STRING "mips"
++
++#define Q3_BIG_ENDIAN
++
++#define DLL_EXT ".so"
++
++#endif
++
+ //================================================================== Q3VM ===
+ 
+ #ifdef Q3_VM
+--- tremulous/tremulous-1.1.0-src/src/unix/sdl_glimp.c	samedi 04 mars 2006, 00:59:01
++++ tremulous-mips/tremulous-1.1.0-src/src/unix/sdl_glimp.c	dimanche 11 février 2007, 01:12:03
+@@ -750,10 +750,11 @@
+   {
+     if ( r_ext_multitexture->value )
+     {
++#ifndef __sgi
+       qglMultiTexCoord2fARB = ( PFNGLMULTITEXCOORD2FARBPROC ) SDL_GL_GetProcAddress( "glMultiTexCoord2fARB" );
+       qglActiveTextureARB = ( PFNGLACTIVETEXTUREARBPROC ) SDL_GL_GetProcAddress( "glActiveTextureARB" );
+       qglClientActiveTextureARB = ( PFNGLCLIENTACTIVETEXTUREARBPROC ) SDL_GL_GetProcAddress( "glClientActiveTextureARB" );
+-
++#endif
+       if ( qglActiveTextureARB )
+       {
+         GLint glint = 0;
+--- tremulous/tremulous-1.1.0-src/src/renderer/tr_types.h	samedi 10 décembre 2005, 21:19:52
++++ tremulous-mips/tremulous-1.1.0-src/src/renderer/tr_types.h	dimanche 11 février 2007, 01:12:03
+@@ -228,7 +228,11 @@
+ 
+ #define _3DFX_DRIVER_NAME	"libMesaVoodooGL.so"
+ // https://zerowing.idsoftware.com/bugzilla/show_bug.cgi?id=524
++#ifdef __sgi
++#define OPENGL_DRIVER_NAME	"libGL.so"
++#else
+ #define OPENGL_DRIVER_NAME	"libGL.so.1"
++#endif
+ 
+ #endif	// !defined _WIN32
+ 
+--- tremulous/tremulous-1.1.0-src/src/unix/unix_glw.h	samedi 10 décembre 2005, 21:19:52
++++ tremulous-mips/tremulous-1.1.0-src/src/unix/unix_glw.h	dimanche 11 février 2007, 01:12:03
+@@ -20,8 +20,8 @@
+ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ ===========================================================================
+ */
+-#if !( defined __linux__ || defined __FreeBSD__ || defined __sun || defined MACOS_X )
+-#error You should include this file only on Linux/FreeBSD/Solaris platforms
++#if !( defined __linux__ || defined __FreeBSD__ || defined __sun || defined MACOS_X || defined __sgi )
++#error You should include this file only on Linux/FreeBSD/Solaris/IRIX platforms
+ #endif
+ 
+ #ifndef __GLW_LINUX_H__
+--- tremulous/tremulous-1.1.0-src/src/unix/unix_main.c	dimanche 26 février 2006, 22:27:02
++++ tremulous-mips/tremulous-1.1.0-src/src/unix/unix_main.c	dimanche 11 février 2007, 17:10:18
+@@ -500,6 +500,13 @@
+   signal(SIGTTIN, SIG_IGN);
+   signal(SIGTTOU, SIG_IGN);
+ 
++  // FIXME NeZetiC tty on irix make game unusable when lauched from console
++  #if defined(__sgi)
++    Cvar_Set("ttycon", "0");
++    ttycon_on = qfalse;
++    return;
++  #endif
++
+   // FIXME TTimo initialize this in Sys_Init or something?
+   ttycon = Cvar_Get("ttycon", "1", 0);
+   if (ttycon && ttycon->value)

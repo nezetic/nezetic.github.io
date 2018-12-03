@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="generator" content="Hakyll"/>
+    <title>NeZetiC.net - Apache, https et reverse proxy</title>
+    <link rel="stylesheet" type="text/css" href="../../css/default.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/lightbox.css"/>
+    <link rel="alternate" type="application/atom+xml" title="NeZetiC.net - Atom 1.0" href="../../atom.xml"/>
+    <link rel="alternate" type="application/rss+xml" title="NeZetiC.net - RSS" href="../../rss.xml"/>
+    <link href="http://fonts.googleapis.com/css?family=Finger+Paint" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="../../js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lightbox-2.6.min.js"></script>
+    <script type="text/javascript" src="../../js/main.js"></script>
+  </head>
+  <body>
+    <div id="main">
+      <div id="header">
+        <a href="../../">NeZetiC.net</a>
+      </div>
+      <div id="sidebar">
+        <h1 id="navigation">Navigation</h1>
+        <p>
+          <a href="../../">accueil</a>
+          <a href="../../articles/">articles</a>
+          <a href="../../contact/">contact</a>
+          <a href="../../about/">a propos</a>
+        </p>
+        <h1 id="projects">Projects</h1>
+        <p>
+          <a href="../../projects/tremgen/">TremGen</a>
+          <a href="../../projects/baldr/">Baldr</a>
+          <a href="../../projects/eyebo/">EyeBO</a>
+          <a href="../../projects/imsekr/">ImSekR</a>
+        </p>
+        <p>
+          <a href="../../rss.xml" title="RSS Flux">
+            <img src="../../images/rss-small.png" alt="“logo”"/>
+          </a>
+        </p>
+      </div>
+      <div id="content">
+        <div id="posts">
+          <ul class="posts">
+            <li class="entry">
+              <h2 class="entrytitle">
+                <a href="../../posts/2007-04-13-Apache_https_reverse_proxy/">Apache, https et reverse proxy</a>
+              </h2>
+              <div class="entrybody">
+                <h2 id="introduction">Introduction</h2>
+                <p>Étant <del>pingre</del> toujours à la recherche de bons plans, je profite d’une offre gratuite pour héberger ce site (chez <a href="http://www.1and1.fr">1and1</a>, société que je ne conseille pas si vous devez payer, pour pleins de raisons qui seraient hors sujets ici).</p>
+                <p>Bref, qui dit gratuité, dit souvent service minimum (bon, même si dans mon cas, ce n’est pas tout à fait vrai).<br/>
+En faite, ce qu’il me manque vraiment, c’est de pouvoir me connecter à mon site en https.</p>
+                <p>Pourquoi ? Simple. J’ai parfois besoin d’accéder à l’espace d’administration depuis des lieux publics (des hotspots par exemple). Et j’avoue que l’idée de taper mon mot de passe en sachant pertinemment que celui-ci va circuler en clair me gène beaucoup (si si, surtout quand il existe un moyen de l‘éviter).</p>
+                <h2 id="une-solution">Une solution</h2>
+                <p>Possédant déjà un serveur personnel sous OpenBSD à la maison (ou home server, ce terme risque de devenir <a href="http://www.journaldugeek.com/index.php?2007/02/28/5920-microsoft-windows-home-server-presentation-et-explications">à la mode</a> d’ici peu…), j’utilise sur celui-ci depuis longtemps le mod_ssl d’apache afin d’avoir un accès https.</p>
+                <p>
+                  <a href="../../images/34.png">
+                    <img src="../../images/34t.png" alt="img_right"/>
+                  </a> L’idée est donc de se servir du mod_proxy pour utiliser mon <em>home server</em> comme une passerelle permettant d’ouvrir une sorte de <em>tunnel</em> “sécurisé” entre mon ordinateur portable et les pages d’administrations.</p>
+                <p>L’exemple qui suit est valable sous OpenBSD. Pour les autres systèmes, les fichiers ne seront pas forcement dans le même répertoire, et les problèmes pourront être différents.</p>
+                <p>Il suffit en théorie de modifier le <strong>httpd.conf</strong> (dans <em>/var/www/conf/</em> ) en activant le mode proxy (si ce n’est pas déjà fait) et rajoutant quelques lignes à la fin du <em>SSL Virtual Host Context</em>.</p>
+                <pre>
+                  <code># caching proxy
+LoadModule proxy_module /usr/lib/apache/modules/libproxy.so
+
+##
+## SSL Virtual Host Context
+##
+&lt;VirtualHost _default_:443>
+#  General setup for the virtual host
+[...]
+
+&lt;IfModule mod_proxy.c>
+      ProxyRequests Off
+      &lt;Directory proxy:*>
+              Order deny,allow
+              Allow from all
+      &lt;/Directory>
+      ProxyPass /textadmin/ http://nezetic.net:80/textpattern/
+      ProxyPassReverse /textadmin/ http://nezetic.net:80/textpattern/
+&lt;/IfModule>
+
+&lt;/VirtualHost</code>
+                </pre>
+                <p>Pour utiliser le reverse proxy, on ouvre la page via http://monhomeserver.net/textadmin/ (le slash final est très important). Et voilà.</p>
+                <p>
+                  <strong>Sauf que</strong>, sous OpenBSD, ceci ne fonctionne pas.<br/>
+En effet, il semble que le fork d’apache de ce merveilleux système soit buggé.<br/>
+Et quoi qu’on fasse, le mod_proxy retourne un malheureux <em>host not found</em>.</p>
+                <p>Après recherche, j’ai compris le problème, et j’ai trouvé une solution (non sans mal, merci Google).</p>
+                <p>Le problème apparait si l’on possède une configuration normale, avec la variable <strong>ServerName</strong> paramétrée comme il se doit. Si on la commente, le reverse proxy fonctionne.</p>
+                <p>Sauf que la commenter, c’est mal.</p>
+                <p>D’où une solution, pour le moins étrange (et à la fois logique, quand on sait que l’apache d’OpenBSD tourne dans une <a href="http://en.wikipedia.org/wiki/Chroot">cage</a>).</p>
+                <p>Il suffit de créer un répertoire <em>etc</em> à la racine de la cage ( <em>/var/www</em> ), puis d’y ajouter un fichier <strong>hosts</strong>, contenant en première ligne l’IP local correspondant au ServerName, et en 2e ligne, l’IP du serveur distant (ici nezetic.net).</p>
+                <pre>
+                  <code>192.168.1.2 monhomeserver.net
+82.165.72.200 nezetic.net www.nezetic.net</code>
+                </pre>
+                <p>Et pouf, tout marche comme par magie (ou presque).</p>
+                <h2 id="conclusion">Conclusion</h2>
+                <p>On peut améliorer le reverse proxy en utilisant un mode d’apache tel que <a href="http://apache.webthing.com/mod_proxy_html/">mod_proxy_html</a> (que je ne conseille pas, il crée une grosse charge et à tendance à modifier un peu trop le code HTML que crache votre serveur), mais dans la plupart des cas, ce que je décris plus haut suffit.</p>
+                <p>Et même si l’utilisation via HTTPS est loin d‘être complètement sûre, elle a le mérite d‘être là, rassurante…</p>
+                <blockquote>
+                  <p>
+                    <strong>Sources &amp; Lectures</strong>
+                    <br/>
+                    <a href="http://www.apachetutor.org/admin/reverseproxies">www.apachetutor.org/admin/reverseproxies</a>
+                    <br/>
+                    <a href="http://hsc.fr/ressources/breves/pourquoi-relais-inverse.html">hsc.fr/ressources/breves/pourquoi-relais-inverse.html</a>
+                    <br/>
+                    <a href="http://httpd.apache.org/docs/1.3/mod/mod_proxy.html">httpd.apache.org/docs/1.3/mod/mod_proxy.html</a>
+                  </p>
+                </blockquote>
+                <div class="signature">
+                  <p>par <em>Cédric TESSIER</em> le <strong>13/04/2007</strong></p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id="footer">
+                Site généré par <a href="http://jaspervdj.be/hakyll/">hakyll</a>.
+            </div>
+    </div>
+  </body>
+</html>

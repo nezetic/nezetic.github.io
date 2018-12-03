@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="generator" content="Hakyll"/>
+    <title>NeZetiC.net - Refroidir une SUN SparcStation 5</title>
+    <link rel="stylesheet" type="text/css" href="../../css/default.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/lightbox.css"/>
+    <link rel="alternate" type="application/atom+xml" title="NeZetiC.net - Atom 1.0" href="../../atom.xml"/>
+    <link rel="alternate" type="application/rss+xml" title="NeZetiC.net - RSS" href="../../rss.xml"/>
+    <link href="http://fonts.googleapis.com/css?family=Finger+Paint" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="../../js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../../js/lightbox-2.6.min.js"></script>
+    <script type="text/javascript" src="../../js/main.js"></script>
+  </head>
+  <body>
+    <div id="main">
+      <div id="header">
+        <a href="../../">NeZetiC.net</a>
+      </div>
+      <div id="sidebar">
+        <h1 id="navigation">Navigation</h1>
+        <p>
+          <a href="../../">accueil</a>
+          <a href="../../articles/">articles</a>
+          <a href="../../contact/">contact</a>
+          <a href="../../about/">a propos</a>
+        </p>
+        <h1 id="projects">Projects</h1>
+        <p>
+          <a href="../../projects/tremgen/">TremGen</a>
+          <a href="../../projects/baldr/">Baldr</a>
+          <a href="../../projects/eyebo/">EyeBO</a>
+          <a href="../../projects/imsekr/">ImSekR</a>
+        </p>
+        <p>
+          <a href="../../rss.xml" title="RSS Flux">
+            <img src="../../images/rss-small.png" alt="“logo”"/>
+          </a>
+        </p>
+      </div>
+      <div id="content">
+        <div id="posts">
+          <ul class="posts">
+            <li class="entry">
+              <h2 class="entrytitle">
+                <a href="../../posts/2006-07-05-Cooling_Down_SS5/">Refroidir une SUN SparcStation 5</a>
+              </h2>
+              <div class="entrybody">
+                <h2 id="introduction">Introduction</h2>
+                <p>Heureux propriétaire d’une SparcStation 5, station SUN de milieu de gamme sortie en 1994 et version « light » de la SparcStation 20, j’ai rapidement été confronté à un problème de surchauffe, notamment des 2 disques durs SCSI que peut embarquer la machine.</p>
+                <p>En effet, au format SCA80, les disques sont empilés l’un sur l’autre dans un coin de la station plutôt isolée du système de ventilation classique.<br/>
+                </p>
+                <p>
+                  <a href="../../images/7.jpg">
+                    <img src="../../images/7t.jpg" alt="img_right"/>
+                  </a>
+                  <br/>
+Après avoir fait quelques recherches sur le net, je n’ai trouvé aucune solution qui me convienne, l’un de mes critères principaux étant que je ne souhaitais pas modifier la machine de manière irréversible.</p>
+                <h2 id="solution">Solution</h2>
+                <p>Il s’agit d’un simple ventilateur fixé à un plateau métallique prévu pour prendre la place du lecteur de CD-ROM.</p>
+                <ul>
+                  <li>Avantages : Aucune modification de la station
+<ul>
+                      <li>Réalisation simple avec quelques outils</li>
+                      <li>Aspect esthétique conservé (on peut faire plus propre que moi)</li>
+                      <li>Refroidissement efficace</li>
+                    </ul></li>
+                  <li>Inconvénients :
+<ul>
+                      <li>Supprime l’utilisation du CD-ROM</li>
+                      <li>Une source de bruit supplémentaire</li>
+                    </ul></li>
+                </ul>
+                <h2 id="réalisation">Réalisation</h2>
+                <p>La plaque métallique utilisée provient d’une station HP et servait à occuper un emplacement 5“1/4. Celle-ci m’a permis de gagner du temps, car elle était pratiquement aux bonnes dimensions, mais l’on peut réaliser ce bricolage dans une plaque métallique quelconque, à condition qu’elle puisse être facile à scier et surtout qu’elle ne <strong>casse pas</strong> si on la tord (la mienne est en acier, ce n‘était vraiment pas l’idéal de ce côté-là).<br/>
+                </p>
+                <p>
+                  <a href="../../images/3.jpg">
+                    <img src="../../images/3t.jpg" alt="img_right"/>
+                  </a>
+                  <br/>
+Le support en lui-même fait 178 mm de long pour 147 mm de large, et le repli de la grille lui donne une hauteur de 40 mm.</p>
+                <p>
+                  <a href="../../images/5.jpg">
+                    <img src="../../images/5t.jpg" alt="img_left"/>
+                  </a> La partie pliée où est fixé le ventilateur a été réalisée dans un étau (j’ai fait avec les moyens du bord) après avoir pratiqué 2 entailles de 20 mm à la scie à métaux. Elle possède un angle relativement important, qui dépend des dimensions du ventilateur.<br/>
+                </p>
+                <p>
+                  <a href="../../images/4.jpg">
+                    <img src="../../images/4t.jpg" alt="img_right"/>
+                  </a>
+                  <br/>
+Concernant celui-ci, il provient d’un ventirad de Pentium III, et mesure 60×60 mm. Il a l’avantage d‘être relativement silencieux, mais assez puissant pour assurer un flux d’air important. Il est vissé solidement à la plaque (après avoir réalisé les trous nécessaires). Pour l’alimenter, j’ai utilisé un adaptateur que j’ai branché sur l’alimentation du lecteur de CD-ROM.</p>
+                <p>
+                  <strong>Attention</strong> : ne surtout pas créer de contacts entre le fil noir et le fil rouge au moment d’adapter les connectiques. J’utilise pour cela une méthode très simple : 2 soudures propres, chacune entourée de ruban adhésif, et le tout de nouveau rassemblé avec ce même ruban. On voit sur le fil la partie avec du ruban adhésif qui protège mes soudures.</p>
+                <p>
+                  <a href="../../images/6.jpg">
+                    <img src="../../images/6t.jpg" alt="img_left"/>
+                  </a>
+                </p>
+                <p>La station une fois le travail terminé. Plutôt discret, et je pense qu’on peut faire bien plus beau. N’hésitez pas à <a href="../../contact/">me contacter</a> pour m’envoyer vos réalisations.</p>
+                <p>Grand merci à Zeta pour son aide ;)</p>
+                <div class="signature">
+                  <p>par <em>Cédric TESSIER</em> le <strong>05/07/2006</strong></p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id="footer">
+                Site généré par <a href="http://jaspervdj.be/hakyll/">hakyll</a>.
+            </div>
+    </div>
+  </body>
+</html>

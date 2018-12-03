@@ -1,0 +1,1 @@
+jQuery(document).ready((function(){$("img[alt^=\"img_\"]").each((function(){$(this).parent().attr("data-lightbox","gallery")}))}))
