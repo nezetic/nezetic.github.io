@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+    <!--
+        Favicon for NeZetiC.net: a hand-painted "N" in the spirit of the
+        site's Finger Paint title, using the theme's link colour. The colour
+        is swapped in dark mode so the mark stays visible on dark tab bars.
+    -->
+    <style>
+        .n {
+            fill: none;
+            stroke: #2b3e5f;
+            stroke-width: 10;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        @media (prefers-color-scheme: dark) {
+            .n { stroke: #97b2db; }
+        }
+    </style>
+    <path class="n" d="M14.5 50 C13.5 39 13 28 14.5 17 L46 47 C47.5 36 47.5 26 46.5 15"/>
+</svg>

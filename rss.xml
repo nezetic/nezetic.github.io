@@ -1,89 +1,968 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:dc="http://purl.org/dc/elements/1.1/">
     <channel>
-        <title>NeZetiC.net feed</title>
-        <link>http://www.nezetic.net</link>
-        <description>NeZetiC.net RSS feed</description>
-        <atom:link href="http://www.nezetic.net/rss.xml" rel="self" type="application/rss+xml"></atom:link>
+        <title>nezetic.net feed</title>
+        <link>https://nezetic.net</link>
+        <description><![CDATA[nezetic.net RSS feed]]></description>
+        <atom:link href="https://nezetic.net/rss.xml" rel="self"
+                   type="application/rss+xml" />
         <lastBuildDate>Wed, 22 Aug 2007 00:00:00 UT</lastBuildDate>
         <item>
     <title>SGI O2 Overclocking : de R10K à R12K</title>
-    <link>http://www.nezetic.net/posts/2007-08-22-SGI_O2_Overcloacking/index.html</link>
-    <description>Remplacement d'un CPU MIPS R10K par un R12K</description>
+    <link>https://nezetic.net/posts/2007-08-22-SGI_O2_Overclocking/index.html</link>
+    <description><![CDATA[<!--NOTEASERBEGIN-->
+<h2 id="introduction">Introduction</h2>
+<p><a href="https://nezetic.net/images/44.jpg" title="Mon O2 en PLF (une tradition)"><img src="https://nezetic.net/images/thumbs/44.webp" class="img-right" decoding="async" loading="lazy" srcset="https://nezetic.net/images/thumbs/44.webp 1x, https://nezetic.net/images/thumbs/44@2x.webp 2x" width="125" height="193" alt="Mon O2 en PLF (une tradition)" /></a></p>
+<!--NOTEASEREND-->
+<p>Passionné de machines SGI, j’ai la chance de posséder ce que je
+considère comme l’une des plus jolies stations Unix jamais créées, la SGI
+O2.</p>
+<p>Petite, peu gourmande en énergie, dotée d’un hardware bien conçu et
+relativement performant pour une station qui représentait l’entrée de
+gamme chez Silicon Graphics, elle s’est plutôt bien vendu et on peut
+aujourd’hui en trouver très facilement, si l’on est prêt à y mettre le
+prix…</p>
+<!--MORE-->
+<p>En effet, le marché de l’occasion étant ce qu’il est, les modèles les
+plus sympas, car les plus performants, ceux de la fin du cycle de
+commercialisation, les plus rares, car les moins vendus, se négocient
+parfois à des prix exorbitants.</p>
+<p>Mais tout espoir n’est pas perdu pour le pauvre geek sans le sou.</p>
+<h2 id="a-new-hope">A new hope</h2>
+<p>Lorsqu’on manque de puissance CPU, plusieurs solutions s’offrent à nous.
+Acheter un nouveau CPU plus puissant, mais généralement onéreux. Ou
+alors, tenter le diable en essayant de pousser celui que l’on a sous la
+main dans ses derniers retranchements (via notamment une augmentation
+sauvage de sa fréquence).</p>
+<p>Dans le cas de l’O2, une troisième solution est possible : le recyclage.</p>
+<p>On prend du vieux pas cher et l’on en fait du <del>neuf</del> moins vieux.</p>
+<p>Ce que je propose, tout simplement, c’est de transformer une O2 R10K 225/250 MHz
+en O2 R12K 300 MHz pour le prix d’un module CPU d’Octane, que l’on
+trouve aujourd’hui très facilement et pour presque rien.</p>
+<p>Intéressé ? Et bien, allons-y.</p>
+<h2 id="the-o2-strike-back">The O2 strike back</h2>
+<p>Première chose à faire avant de partir à la conquête de l’univers,
+s’assurer que l’on a les bonnes bases.</p>
+<p>On ne s’intéressera ici qu’à la quête de la puissance ultime. Si votre
+O2 n’est armé que d’un processeur R5K, il va falloir quand même investir
+un minimum. Si l’argent vous manque vraiment, il faudra oublier vos
+rêves de puissance, à moins que le passage de R5K180 MHz à R5K200 MHz
+suffise à combler vos attentes.</p>
+<p>Ce qu’il vous faut :</p>
+<ul>
+<li>Une O2 avec un processeur R10K225 ou R10K250</li>
+<li>Un module CPU d’Octane R12K270 ou R12K300</li>
+<li>Un tournevis cruciforme pas trop gros ni trop petit</li>
+<li>Une clé Allen de 5 mm</li>
+<li>De quoi souder à l’étain</li>
+<li>Une bonne vue et des mains qui ne tremblent pas</li>
+</ul>
+<p>Pour les processeurs, on peut en trouver assez facilement sur les divers
+sites de ventes. Pour les outils, c’est du très classique. En ce qui
+concerne le dernier point, en cas de soucis, j’ai bien peur que vous
+deviez faire appel à votre fidèle Wookiee.</p>
+<p>Bon, maintenant que nous avons le matériel, passons à un peu de théorie.</p>
+<h2 id="knowledge-is-power">Knowledge is power</h2>
+<p>C’est en parcourant le forum de <a href="https://web.archive.org/web/20070103204830/http://forums.nekochan.net/">nekochan</a>
+que j’ai découvert un jour que l’on pouvait utiliser un processeur R12K
+sur un module CPU d’O2 R10K.</p>
+<p>En effet, sauf pour le R12K400 MHz, les processeurs d’O2 R10/12K ne sont
+pas soudés sur leurs cartes, mais simplement maintenus sur un slot par
+le radiateur.</p>
+<p>Mieux encore, il existe une parfaite compatibilité des pins entre les
+R10K de génération 225 et 250 MHz et les R12K 270 et 300 MHz.</p>
+<p>Ceci implique donc que l’on peut mettre un processeur R12K, prélevé dans
+un module CPU d’Octane par exemple, dans un module CPU d’O2 destiné à
+l’origine à un R10K. Si ce n’est pas beau ça.</p>
+<p>Seul problème, notre pauvre CPU R12K va alors se retrouver à la même
+fréquence que son prédécesseur.</p>
+<p>Il va donc falloir ramener celui-ci dans sa fréquence réelle en
+modifiant les caractéristiques de la carte CPU.</p>
+<p>Suivant les cas, on va être amené à jouer avec 2 valeurs :</p>
+<ul>
+<li>Un coefficient multiplicateur (CM)</li>
+<li>La fréquence du SysClock</li>
+</ul>
+<p>En effet, la fréquence du processeur est calculée suivant une formule
+simple : SysClock * CM.</p>
+<p>Quelques exemples pour éclaircir tout cela :</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">CPU Type</th>
+<th style="text-align: left;">CPU Freq</th>
+<th style="text-align: left;">CM</th>
+<th style="text-align: left;">SysClock</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">R10K</td>
+<td style="text-align: left;">225 MHz</td>
+<td style="text-align: left;">2.5</td>
+<td style="text-align: left;">90 MHz</td>
+</tr>
+<tr>
+<td style="text-align: left;">R10K</td>
+<td style="text-align: left;">250 MHz</td>
+<td style="text-align: left;">2.5</td>
+<td style="text-align: left;">100 MHz</td>
+</tr>
+<tr>
+<td style="text-align: left;">R12K</td>
+<td style="text-align: left;">270 MHz</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">90 MHz</td>
+</tr>
+<tr>
+<td style="text-align: left;">R12K</td>
+<td style="text-align: left;">300 MHz</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">100 MHz</td>
+</tr>
+</tbody>
+</table>
+<p>Cette table montre bien une chose : la manipulation ne sera pas la même
+suivant le module processeur de départ et celui d’arrivée.</p>
+<p>Dans un cas, il suffira de modifier le coefficient, dans
+l’autre il faudra en plus overclocker le SysClock.</p>
+<h2 id="welcome-in-the-real-world">Welcome in the real world</h2>
+<h3 id="modification-du-coefficient">Modification du coefficient</h3>
+<p><a href="https://nezetic.net/images/38.jpg" title="Carte module CPU O2 R10K225/250"><img src="https://nezetic.net/images/thumbs/38.webp" class="img-right" decoding="async" loading="lazy" srcset="https://nezetic.net/images/thumbs/38.webp 1x, https://nezetic.net/images/thumbs/38@2x.webp 2x" width="125" height="114" alt="Carte module CPU O2 R10K225/250" /></a>
+Cette opération est la plus simple. La valeur du coefficient est
+déterminée par la position de résistances sur une extrémité de la carte
+CPU (voir encadré rouge sur l’image).</p>
+<p>Pour passer de 2.5 à 3, il va falloir en bouger 2.</p>
+<p>Voici un relevé des résistances sur 2 modules CPU de coefficient
+multiplicateur différent :</p>
+<p><strong>O2 R10K 225 MHz</strong></p>
+<pre><code>R508
+           R510
+R514
+           R517
+           R523
+           R530
+R534
+           R537
+R540
+           R541
+R544
+R547
+           R548
+           R550
+           R552
+           R554
+           R556
+R559</code></pre>
+<p><strong>O2 R12K 270 MHz</strong></p>
+<pre><code>R508
+           R510
+R514
+           R517
+           R523
+           R530
+R534
+R538
+R540
+           R541
+R544
+R547
+           R548
+           R550
+R553
+           R554
+           R556
+R559</code></pre>
+<p>On voit clairement ici les 2 résistances à modifier. Il va falloir les
+déplacer de <strong>R537</strong> à <strong>R538</strong> et de <strong>R552</strong> à <strong>R553</strong>.</p>
+<h3 id="modification-du-sysclock">Modification du SysClock</h3>
+<p>On peut là aussi modifier la fréquence du SysClock de 90 MHz à 100 MHz
+simplement en changeant de place 2 résistances.</p>
+<p>L’opération est juste rendue plus délicate par la position de celles-ci
+sur la carte qui les rend plus difficiles à manipuler.<br />
+</p>
+<p><a href="https://nezetic.net/images/54.jpg" title="O2 R12K270 MHz -&gt; R12K300 MHz"><img src="https://nezetic.net/images/thumbs/54.webp" class="img-right" decoding="async" loading="lazy" srcset="https://nezetic.net/images/thumbs/54.webp 1x, https://nezetic.net/images/thumbs/54@2x.webp 2x" width="125" height="118" alt="O2 R12K270 MHz -&gt; R12K300 MHz" /></a><br />
+Au fil de mes bidouilles, je me suis aperçu que SGI avait changé le nom
+de ces résistances entre 2 générations de cartes CPU.</p>
+<p>Plutôt que de donner uniquement des noms, un membre de
+<a href="http://www.sunwizard.net/">Sunwizard.net</a> m’a gentiment fourni une
+photo haute résolution de la carte, à partir de laquelle j’ai réalisé le
+schéma ci-contre.</p>
+<p>Celui-ci montre les résistances dans la position finale (le Sysclock à 100
+MHz donc), avec la modification effectuée mise en relief par des flèches
+(sur cette carte, elles ont été déplacées de <strong>R644</strong> à <strong>R646</strong> et de
+<strong>R649</strong> à <strong>R650</strong>).</p>
+<h2 id="im-your-father">I’m your father</h2>
+<p>Pour passer de la théorie à la pratique, quelques recommandations
+s’imposent.</p>
+<p>Une carte CPU comme celle de l’O2 est <strong>très sensible</strong> aux décharges
+<strong>d’électricité statique</strong>.</p>
+<p>Il faut donc faire très attention en là manipulant, éviter de mettre ses
+doigts sur les composants et prendre soin de se décharger à la terre
+(via une prise de courant par exemple) si l’on ne possède pas de
+bracelet antistatique.</p>
+<p>De plus, lorsqu’on démonte les radiateurs des modules, il arrive que de
+petites particules de métal se détachent au niveau des ressorts. Faire
+très attention à ne pas en laisser traîner sur la carte.</p>
+<p>Enfin, on ne manipule pas des composants CMS comme on ressoude
+l’alimentation du grille-pain de tante Jeannine. Ceux-ci sont très
+petits, et demandent du doigté et un matériel correct pour les manipuler.
+Si l’on ne sait pas souder convenablement et vérifier les contacts, ne
+pas se lancer dans la manipulation seul au risque de tout casser.</p>
+<p>Dans tous les cas, je ne serais <strong>aucunement responsable</strong> si un module
+CPU refuse de fonctionner après manipulation.</p>
+<h2 id="just-a-little-hack">Just a little hack</h2>
+<p>Reste maintenant à détailler un peu comment effectuer la manipulation.</p>
+<p><a href="https://nezetic.net/images/60.jpg" title="Module CPU Octane R12K"><img src="https://nezetic.net/images/thumbs/60.webp" class="img-right" decoding="async" loading="lazy" srcset="https://nezetic.net/images/thumbs/60.webp 1x, https://nezetic.net/images/thumbs/60@2x.webp 2x" width="125" height="103" alt="Module CPU Octane R12K" /></a>
+On va commencer par démonter le module CPU de l’Octane, afin de
+récupérer le R12K qui sommeille en lui. Pour cela, il suffit de dévisser
+les 2 petites vis sur le côté du module, ainsi que les supports s’ils
+sont encore présents sous celui-ci avec un tournevis. Puis, ce sera au
+tour des 4 grosses vis qui maintiennent le radiateur avec l’aide de la
+clé Allen. Après avoir délicatement retiré celui-ci, le processeur sera
+clairement visible sur son socket, <strong>sauf</strong>, et là <strong>attention</strong> lorsque
+celui-ci reste collé par la patte thermique sur le radiateur !</p>
+<p>On va ensuite s’attaquer à l’O2. La première chose à faire est de sortir
+le support de carte PCI. Pour cela, le plus simple (et le plus rapide) reste
+de retirer 3 vis de la façade, les 2 qui tiennent le support, ainsi que
+celle juste en dessous qui maintient un cache noir, de manière à pouvoir
+tordre un peu le plastique pour faire de la place pour le support.</p>
+<p><a href="https://nezetic.net/images/59.jpg" title="Module CPU O2 R10K"><img src="https://nezetic.net/images/thumbs/59.webp" class="img-left" decoding="async" loading="lazy" srcset="https://nezetic.net/images/thumbs/59.webp 1x, https://nezetic.net/images/thumbs/59@2x.webp 2x" width="125" height="118" alt="Module CPU O2 R10K" /></a>
+On a alors accès au module processeur. Pour l’extraire, il suffit de
+dévisser les 4 petites vis brillantes à ses extrémités, puis de tirer
+dessus délicatement.</p>
+<p>Comme sur le module de l’Octane, il reste à dévisser les 4 grosses vis
+du radiateur avec la clé Allen, et on a accès au processeur R10K.</p>
+<p>Il suffit alors d’échanger les 2 processeurs en respectant le
+détrompeur, et de remettre délicatement le radiateur en place.</p>
+<p>À cette étape de la manipulation, on a un module CPU d’O2 R12K
+fonctionnel, mais avec une mauvaise fréquence.</p>
+<p>Maintenant que le radiateur est en place, poser le module sur celui-ci,
+et effectuer les manipulations sur les résistances qui sont pour vous
+nécessaires.</p>
+<p>Enfin, on remonte tout cela, en prenant bien soin de vérifier que l’on a
+rien oublié.</p>
+<h2 id="a-new-born">A new born</h2>
+<p>Au prochain redémarrage, si tout s’est bien passé, voici ce qu’on obtient :</p>
+<pre><code>CPU: MIPS R12000 Processor Chip Revision: 2.3 
+FPU: MIPS R12010 Floating Point Chip Revision: 0.0 
+1 300 MHZ IP32 Processor 
+Main memory size: 1024 Mbytes</code></pre>
+<p>Même si elle est risquée, cette bidouille du module CPU vaut vraiment le
+coup, puisque l’on obtient en fin de compte pour un prix réduit un module R12K
+ayant les mêmes caractéristiques techniques que celui vendu par SGI.</p>
+<p>Les performances sont donc au rendez-vous.</p>
+<p><strong>Avant</strong> :</p>
+<pre><code>CPU: MIPS R5000 300 MHZ 
+Dhrystones : VAX MIPS rating =    379.343 
+Linpack : Unrolled Double  Precision 44572 Kflops 
+Whetstone : MWIPS  392.908</code></pre>
+<p><strong>Maintenant</strong> :</p>
+<pre><code>CPU: MIPS R12000 300 MHZ 
+Dhrystones : VAX MIPS rating =    594.373 
+Linpack : Unrolled Double  Precision 120207 Kflops 
+Whetstone : MWIPS  732.340</code></pre>
+<p>Le tout pour une quarantaine d’euros en ce qui me concerne (ayant déjà à
+disposition un module CPU d’Octane, je n’ai acheté qu’une carte mère
+R10K225 pour l’O2).</p>
+<p>Voilà, il ne me reste plus qu’à souhaiter bonne chance à ceux qui
+tenteront la bidouille.</p>
+<blockquote>
+<p><strong>Quelques liens</strong><br />
+<del>forums.nekochan.net/viewtopic.php?f=3&amp;t=2348&amp;start=30</del><br />
+<a href="https://web.archive.org/web/20071020134246/http://www.sunwizard.net/forum/viewtopic.php?t=2022">www.sunwizard.net/forum/viewtopic.php?t=2022</a><br />
+<a href="https://web.archive.org/web/20071017104638/http://www.sunwizard.net/forum/viewtopic.php?t=2052">www.sunwizard.net/forum/viewtopic.php?t=2052</a></p>
+<p><strong>Remerciements</strong><br />
+Merci à chicago-joe, membre de Nekochan, grand maître vénéré de la
+bidouille SGI, sans qui rien de tout cela n’aurait été possible.<br />
+Merci aussi à BinusFr, membre de Sunwizard, d’avoir démonté son O2
+juste pour quelques photos</p>
+</blockquote>]]></description>
     <pubDate>Wed, 22 Aug 2007 00:00:00 UT</pubDate>
-    <guid>http://www.nezetic.net/posts/2007-08-22-SGI_O2_Overcloacking/index.html</guid>
-    <dc:creator>Cédric</dc:creator>
-</item>
-<item>
-    <title>My precious...</title>
-    <link>http://www.nezetic.net/posts/2007-07-16-My_precious/index.html</link>
-    <description>Ouverture de la section collection</description>
-    <pubDate>Mon, 16 Jul 2007 00:00:00 UT</pubDate>
-    <guid>http://www.nezetic.net/posts/2007-07-16-My_precious/index.html</guid>
-    <dc:creator>Cédric</dc:creator>
-</item>
-<item>
-    <title>Apache, https et reverse proxy</title>
-    <link>http://www.nezetic.net/posts/2007-04-13-Apache_https_reverse_proxy/index.html</link>
-    <description>Reverse proxy HTTPS avec Apache</description>
-    <pubDate>Fri, 13 Apr 2007 00:00:00 UT</pubDate>
-    <guid>http://www.nezetic.net/posts/2007-04-13-Apache_https_reverse_proxy/index.html</guid>
-    <dc:creator>Cédric</dc:creator>
-</item>
-<item>
-    <title>C'est le printemps !</title>
-    <link>http://www.nezetic.net/posts/2007-03-28-SpringTime/index.html</link>
-    <description>Refonte du site</description>
-    <pubDate>Wed, 28 Mar 2007 00:00:00 UT</pubDate>
-    <guid>http://www.nezetic.net/posts/2007-03-28-SpringTime/index.html</guid>
-    <dc:creator>Cédric</dc:creator>
-</item>
-<item>
-    <title>Apache: Bot? No, thank you margaret</title>
-    <link>http://www.nezetic.net/posts/2007-03-03-Apache_Bot_No_Thank_you/index.html</link>
-    <description>Script pour bloquer automatiquement les scans des web robots</description>
-    <pubDate>Sat, 03 Mar 2007 00:00:00 UT</pubDate>
-    <guid>http://www.nezetic.net/posts/2007-03-03-Apache_Bot_No_Thank_you/index.html</guid>
-    <dc:creator>Cédric</dc:creator>
-</item>
-<item>
-    <title>SPARCstation 1</title>
-    <link>http://www.nezetic.net/posts/2006-09-04-Sparcstation1/index.html</link>
-    <description>Article sur la Sun SPARCstation 1</description>
-    <pubDate>Mon, 04 Sep 2006 00:00:00 UT</pubDate>
-    <guid>http://www.nezetic.net/posts/2006-09-04-Sparcstation1/index.html</guid>
+    <guid>https://nezetic.net/posts/2007-08-22-SGI_O2_Overclocking/index.html</guid>
     <dc:creator>Cédric</dc:creator>
 </item>
 <item>
     <title>Allez EyeBO, va chercher...</title>
-    <link>http://www.nezetic.net/posts/2006-07-26-GoEyeBo/index.html</link>
-    <description>Présentation du projet EyeBO</description>
-    <pubDate>Wed, 26 Jul 2006 00:00:00 UT</pubDate>
-    <guid>http://www.nezetic.net/posts/2006-07-26-GoEyeBo/index.html</guid>
+    <link>https://nezetic.net/posts/2006-07-26-GoEyeBo/index.html</link>
+    <description><![CDATA[<p>Un titre qui sent un peu (beaucoup ?) le manque d’inspiration (voir
+<a href="https://en.wikipedia.org/wiki/AIBO">Aibo</a>, le vrai) pour annoncer le
+lancement d’un nouveau projet, EyeBO.</p>
+<p>Il n’est pas question pour moi d’un quelconque caniche électronique,
+mais du développement d’un driver sous licence GPL pour le projet
+<a href="https://lcdproc.com/">LCDproc</a>.</p>
+<p>En espérant que je ne fonde pas avant la fin…</p>
+<p>Pour plus d’informations, <a href="https://nezetic.net/projects/eyebo/">c’est ici</a>.</p>]]></description>
+    <pubDate>Thu, 26 Jul 2007 00:00:00 UT</pubDate>
+    <guid>https://nezetic.net/posts/2006-07-26-GoEyeBo/index.html</guid>
+    <dc:creator>Cédric</dc:creator>
+</item>
+<item>
+    <title>My precious...</title>
+    <link>https://nezetic.net/posts/2007-07-16-My_precious/index.html</link>
+    <description><![CDATA[<p>Dans le but d’échapper aux vilains rayons du soleil
+<em>qui-brule-la-peau-et-explose-les-yeux</em> en ce beau dimanche de juillet
+(et parce qu’à 32° à l’ombre la pratique du Roller se transforme en
+séance de masochisme), j’ai décidé de mettre à profit un peu de temps
+libre pour réaliser un ajout à ce petit site qui me tient à coeur.</p>
+<!--MORE-->
+<p>Il s’agit d’une sorte de galerie qui présente les machines Unix dont
+j’ai la garde et prends soin. Loin d’être une simple liste de noms sans
+intérêt, chacune possède sa fiche d’identité, avec des informations
+assez complètes, ainsi que de jolies images pour les gens qui n’aiment
+pas lire (et qui donc ne liront pas ceci, aucun risque de me les mettre
+à dos).</p>
+<p>Bien entendu, cette section sera en constante évolution, aussi bien au
+niveau des machines que des informations les concernant.</p>
+<p>Voilà, c’est tout. Je sais que personnellement j’apprécie beaucoup de
+parcourir les collections de certains passionnés, et pour tout avouer,
+cela me permettra aussi de faire le point sur ce que je possède.</p>
+<p>Pour le reste, c’est dans la section
+<a href="https://nezetic.net/404.html">collection</a> que cela se
+passe.</p>]]></description>
+    <pubDate>Mon, 16 Jul 2007 00:00:00 UT</pubDate>
+    <guid>https://nezetic.net/posts/2007-07-16-My_precious/index.html</guid>
+    <dc:creator>Cédric</dc:creator>
+</item>
+<item>
+    <title>Apache, https et reverse proxy</title>
+    <link>https://nezetic.net/posts/2007-04-13-Apache_https_reverse_proxy/index.html</link>
+    <description><![CDATA[<!--NOTEASERBEGIN-->
+<h2 id="introduction">Introduction</h2>
+<!--NOTEASEREND-->
+<p>Étant <del>pingre</del> toujours à la recherche de bons plans, je profite d’une
+offre gratuite pour héberger ce site (chez <a href="http://www.1and1.fr">1and1</a>,
+société que je ne conseille pas si vous devez payer, pour plein de
+raisons qui seraient hors sujet ici).</p>
+<p>Bref, qui dit gratuité, dit souvent service minimum (bon, même si dans
+mon cas, ce n’est pas tout à fait vrai).<br />
+En fait, ce qu’il me manque vraiment, c’est de pouvoir me connecter à
+mon site en https.</p>
+<!--MORE-->
+<p>Pourquoi ? Simple. J’ai parfois besoin d’accéder à l’espace d’administration
+depuis des lieux publics (des hotspots par exemple). Et j’avoue que l’idée
+de taper mon mot de passe en sachant pertinemment que celui-ci va circuler
+en clair me gêne beaucoup (si si, surtout quand il existe un moyen de l’éviter).</p>
+<h2 id="une-solution">Une solution</h2>
+<p>Possédant déjà un serveur personnel sous OpenBSD à la maison (ou home
+server, ce terme risque de devenir <a href="http://www.journaldugeek.com/index.php?2007/02/28/5920-microsoft-windows-home-server-presentation-et-explications">à la
+mode</a>
+d’ici peu…), j’utilise sur celui-ci depuis longtemps le mod_ssl
+d’Apache afin d’avoir un accès https.</p>
+<p><a href="https://nezetic.net/images/34.png"><img src="https://nezetic.net/images/thumbs/34.webp" class="img-right" decoding="async" loading="lazy" srcset="https://nezetic.net/images/thumbs/34.webp 1x, https://nezetic.net/images/thumbs/34@2x.webp 2x" width="125" height="128" alt="Schéma : le serveur maison sert de passerelle HTTPS vers le serveur web" /></a>
+L’idée est donc de se servir du mod_proxy pour utiliser mon <em>home
+server</em> comme une passerelle permettant d’ouvrir une sorte de <em>tunnel</em>
+“sécurisé” entre mon ordinateur portable et les pages d’administration.</p>
+<p>L’exemple qui suit est valable sous OpenBSD. Pour les autres systèmes,
+les fichiers ne seront pas forcément dans le même répertoire, et les
+problèmes pourront être différents.</p>
+<p>Il suffit en théorie de modifier le <strong>httpd.conf</strong> (dans
+<em>/var/www/conf/</em> ) en activant le mode proxy (si ce n’est pas déjà fait)
+et en rajoutant quelques lignes à la fin du <em>SSL Virtual Host Context</em>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode apache"><code class="sourceCode apache"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># caching proxy</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>LoadModule<span class="st"> proxy_module /usr/lib/apache/modules/libproxy.so</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">##</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">## SSL Virtual Host Context</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">##</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;VirtualHost</span><span class="at"> _default_:443</span><span class="fu">&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#  General setup for the virtual host</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>[...]</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;IfModule</span><span class="at"> mod_proxy.c</span><span class="fu">&gt;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>      <span class="ex">ProxyRequests</span><span class="ch"> </span><span class="kw">Off</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">&lt;Directory</span><span class="at"> proxy:*</span><span class="fu">&gt;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>              <span class="ex">Order</span><span class="ch"> </span><span class="kw">deny,allow</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>              Allow<span class="st"> from all</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>      <span class="fu">&lt;/Directory&gt;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>      ProxyPass<span class="st"> /textadmin/ http://nezetic.net:80/textpattern/</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>      ProxyPassReverse<span class="st"> /textadmin/ http://nezetic.net:80/textpattern/</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;/IfModule&gt;</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;/VirtualHost&gt;</span></span></code></pre></div>
+<p>Pour utiliser le reverse proxy, on ouvre la page via
+http://monhomeserver.net/textadmin/ (le slash final est très important).
+Et voilà.</p>
+<p><strong>Sauf que</strong>, sous OpenBSD, ceci ne fonctionne pas.<br />
+En effet, il semble que le fork d’Apache de ce merveilleux système soit
+buggé.<br />
+Et quoi qu’on fasse, le mod_proxy retourne un malheureux <em>host not
+found</em>.</p>
+<p>Après recherche, j’ai compris le problème, et j’ai trouvé une solution
+(non sans mal, merci Google).</p>
+<p>Le problème apparait si l’on possède une configuration normale, avec la
+variable <strong>ServerName</strong> paramétrée comme il se doit. Si on la commente,
+le reverse proxy fonctionne.</p>
+<p>Sauf que la commenter, c’est mal.</p>
+<p>D’où une solution, pour le moins étrange (et à la fois logique, quand on
+sait que l’Apache d’OpenBSD tourne dans une
+<a href="https://en.wikipedia.org/wiki/Chroot">cage</a>).</p>
+<p>Il suffit de créer un répertoire <em>etc</em> à la racine de la cage (
+<em>/var/www</em> ), puis d’y ajouter un fichier <strong>hosts</strong>, contenant en
+première ligne l’IP locale correspondant au ServerName, et en 2e ligne,
+l’IP du serveur distant (ici nezetic.net).</p>
+<pre><code>192.168.1.2 monhomeserver.net
+82.165.72.200 nezetic.net www.nezetic.net</code></pre>
+<p>Et pouf, tout marche comme par magie (ou presque).</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>On peut améliorer le reverse proxy en utilisant un mode d’Apache tel que
+<a href="http://apache.webthing.com/mod_proxy_html/">mod_proxy_html</a> (que je
+ne conseille pas, il crée une grosse charge et a tendance à modifier un
+peu trop le code HTML que crache votre serveur), mais dans la plupart
+des cas, ce que je décris plus haut suffit.</p>
+<p>Et même si l’utilisation via HTTPS est loin d’être complètement sûre,
+elle a le mérite d’être là, rassurante…</p>
+<blockquote>
+<p><strong>Sources &amp; Lectures</strong><br />
+<a href="http://www.apachetutor.org/admin/reverseproxies">www.apachetutor.org/admin/reverseproxies</a><br />
+<a href="https://web.archive.org/web/20070221232325/http://www.hsc.fr/ressources/breves/pourquoi-relais-inverse.html">hsc.fr/ressources/breves/pourquoi-relais-inverse.html</a><br />
+<a href="https://web.archive.org/web/20080201181714/http://httpd.apache.org/docs/1.3/mod/mod_proxy.html">httpd.apache.org/docs/1.3/mod/mod_proxy.html</a></p>
+</blockquote>]]></description>
+    <pubDate>Fri, 13 Apr 2007 00:00:00 UT</pubDate>
+    <guid>https://nezetic.net/posts/2007-04-13-Apache_https_reverse_proxy/index.html</guid>
+    <dc:creator>Cédric</dc:creator>
+</item>
+<item>
+    <title>C'est le printemps !</title>
+    <link>https://nezetic.net/posts/2007-03-28-SpringTime/index.html</link>
+    <description><![CDATA[<p>Pour de multiples raisons (dont la lourdeur et les nombreux <em>hacks</em>
+personnels qui rendaient les mises à jour cauchemardesques), j’ai
+décidé de changer le moteur du site.</p>
+<p>Adieu <a href="https://drupal.org">Drupal</a> donc, et bienvenue à
+<a href="https://www.textpattern.com">Textpattern</a>.</p>
+<p>Pour ceux qui ne connaissent pas, il s’agit d’un CMS comme il en existe
+des dizaines, mais qui m’apporte : une relative légèreté, un système de
+<em>template</em> monstrueux, une édition très intuitive (grâce notamment à
+l’intégration de <a href="https://web.archive.org/web/20070328000000/http://www.textism.com/tools/textile/help.html">textile</a>), une
+console d’administration sobre et rudement bien conçue, plus des dizaines
+de petites choses qui font qu’on est rapidement heureux d’avoir changé
+de crémerie.</p>
+<p>Au passage, et comme l’indique le titre de cette news, c’est déjà le
+printemps depuis quelques jours, le beau temps revient, et le site en
+profite pour faire peau neuve.</p>
+<p>Ce n’est pas que l’ancien design ait beaucoup servi, mais après bientôt
+un an d’existence, j’avais envie d’afficher d’autres couleurs.</p>]]></description>
+    <pubDate>Wed, 28 Mar 2007 00:00:00 UT</pubDate>
+    <guid>https://nezetic.net/posts/2007-03-28-SpringTime/index.html</guid>
+    <dc:creator>Cédric</dc:creator>
+</item>
+<item>
+    <title>Apache: Bot? No, thank you Margaret</title>
+    <link>https://nezetic.net/posts/2007-03-03-Apache_Bot_No_Thank_you/index.html</link>
+    <description><![CDATA[<p>Possédant un serveur de développement sous OpenBSD, je suis confronté
+régulièrement à un afflux d’erreurs dans mes logs d’Apache.<br />
+Il s’agit la plupart du temps de “page not found” générées par des
+robots qui explorent le net à la recherche d’applications web mal
+configurées ou plus simplement pas à jour.</p>
+<p>Ce n’est pas bien gênant, mais si l’on peut l’éviter, pourquoi ne pas le
+faire ?<br />
+<br />
+J’ai donc réalisé un petit
+<a href="https://nezetic.net/files/apablock.rb">script</a> sans
+prétention qui a pour mission de bannir la vermine.</p>
+<!--MORE-->
+<p>Celui-ci est très simple, ne demande que l’interpréteur Ruby installé
+sur la machine, et utilise par défaut Packet Filter (le firewall
+d’OpenBSD) pour bannir les IP.</p>
+<p>On peut néanmoins très facilement l’adapter, en changeant les quelques
+constantes au début du script :</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cn">LOGFILE</span> <span class="op">=</span> <span class="st">&quot;/var/www/logs/error_log&quot;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cn">BANLOG</span> <span class="op">=</span> <span class="st">&quot;/var/log/banlog&quot;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cn">FCMD</span> <span class="op">=</span> <span class="st">&quot;pfctl -t bruteforce -T add&quot;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cn">EXIP</span> <span class="op">=</span> <span class="kw">[</span><span class="st">&quot;10.0.0.0/8&quot;</span>,<span class="st">&quot;127.0.0.0/8&quot;</span>,<span class="st">&quot;172.16.0.0/12&quot;</span>,<span class="st">&quot;192.168.0.0/16&quot;</span><span class="kw">]</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cn">MRATE</span> <span class="op">=</span> <span class="st">&quot;3/10&quot;</span> <span class="co"># n/m : a max of n tries in m seconds</span></span></code></pre></div>
+<p>Ce n’est certes pas une solution miracle, encore moins révolutionnaire,
+mais elle a le mérite de marcher et de combler mes attentes.</p>
+<p><a href="https://nezetic.net/files/apablock.rb">Download</a></p>]]></description>
+    <pubDate>Sat, 03 Mar 2007 00:00:00 UT</pubDate>
+    <guid>https://nezetic.net/posts/2007-03-03-Apache_Bot_No_Thank_you/index.html</guid>
+    <dc:creator>Cédric</dc:creator>
+</item>
+<item>
+    <title>SPARCstation 1</title>
+    <link>https://nezetic.net/posts/2006-09-04-Sparcstation1/index.html</link>
+    <description><![CDATA[<h2 id="introduction">Introduction</h2>
+<p><a href="https://nezetic.net/images/10.jpg" title="SparcStation 1"><img src="https://nezetic.net/images/thumbs/10.webp" class="img-right" decoding="async" loading="lazy" srcset="https://nezetic.net/images/thumbs/10.webp 1x, https://nezetic.net/images/thumbs/10@2x.webp 2x" width="125" height="112" alt="SparcStation 1" /></a>
+La SPARCstation 1 (nom de code “Campus”), ou Sun 4/60, a été
+commercialisée par Sun Microsystems dès avril 1989. Il s’agit avant tout
+de la première station de travail intégrant le puissant processeur SPARC
+au format “Desktop”.</p>
+<!--MORE-->
+<p>Vendue à l’origine entre 9.000 $ et 20.000 $, elle était destinée à
+concurrencer sérieusement les PC haut de gamme et les MACs de l’époque,
+tout en proposant un nouveau format de boîtier, dit “Pizza box” (par
+analogie évidente en regard de ses dimensions avec la célèbre boite à
+pizza en carton), ayant pour dimensions 40,5 cm x 40,5 cm pour 7 cm
+pauvres centimètres de hauteur.</p>
+<h2 id="hardware">Hardware</h2>
+<p>Basée sur l’architecture <a href="https://fr.wikipedia.org/wiki/Sparc">SPARC</a>
+(Scalable Processor ARChitecture), une norme construite sur un modèle
+<a href="https://fr.wikipedia.org/wiki/Reduced_instruction_set_computer">RISC</a>
+(Reduced Instruction Set Computer), la SPARCstation 1 est basée sur un
+processeur LSI Logic cadencé à 20 MHz uni à un coprocesseur
+<a href="https://en.wikipedia.org/wiki/Floating_point_unit">FPU</a> (Floating Point
+Unit, unité de calcul pour les nombres à virgule dits flottants) Weitek
+3167 (ou 3170). Ces processeurs ont été introduits en 1987 par Sun pour
+remplacer les Motorola 68020 et 68030 qui équipaient alors leurs
+stations.<br />
+Il est à noter que Sun a sorti en 1990 un lifting de la SPARCstation,
+nommé tout simplement SPARCstation+1 et possédant une unité de calcul
+plus rapide, équipée d’un processeur LSI Logic à 25 MHz et du
+coprocesseur Weitek 3172.<br />
+</p>
+<p><a href="https://nezetic.net/images/11.gif" title="SparcStation 1 Motherboard"><img src="https://nezetic.net/images/11t.gif" class="img-right" decoding="async" loading="lazy" width="125" height="141" alt="SparcStation 1 Motherboard" /></a><br />
+Cette station inaugure la série d’architectures sun4c. La carte mère
+propose 3 ports SBus pour les cartes d’extension (en remplacement des
+bus VME), de l’audio en 8 kHz, deux ports série au format DB25, un port
+AUI pour le réseau et un connecteur SCSI (qui permet notamment d’utiliser
+un lecteur de CD-ROM externe). Elle intègre aussi 30 emplacements mémoire,
+groupés par 4, permettant de disposer de jusqu’à 64 Mo de RAM au format
+SIMM. Le boîtier permet de loger 2 disques en SCSI-2 (50 pins), un luxe
+appréciable en regard de sa taille réduite, ainsi que le lecteur de
+disquettes à éjection motorisée.</p>
+<p>La carte graphique de base permet d’afficher 256 couleurs en 1152×900,
+avec des performances correctes pour l’époque.</p>
+<p>Le principal problème de ces stations à l’heure actuelle reste leur
+NVRAM, un petit composant capable de sauvegarder les données de
+l’OpenBoot (l’équivalent du BIOS sur PC) ainsi que l’heure du système,
+qui arrive en fin de vie.</p>
+<p>Il est néanmoins possible de le changer assez facilement par un
+composant équivalent, ce que j’ai d’ailleurs fait pour la station que je
+possède.</p>
+<h2 id="software">Software</h2>
+<p>La station tourne par défaut sous SunOS 4.0.3, mais l’on peut utiliser
+Solaris jusqu’à la version 7.<br />
+Linux et OpenBSD sont aussi supportés.</p>
+<p>Il faut néanmoins réaliser que la puissance limitée de la station est un
+frein pour l’utilisation d’OS modernes (OpenBSD 3.8 met plus de 3
+minutes à démarrer sur la mienne, pourtant bien équipée).</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>La SPARCstation 1 propose donc un hardware complet, robuste et bien
+intégré, qui permet de profiter encore aujourd’hui de systèmes
+tels que SunOS 4 qui appartiennent maintenant à un autre âge.</p>
+<blockquote>
+<p>Sources :<br />
+<a href="https://en.wikipedia.org/wiki/SPARCstation_1">en.wikipedia.org/wiki/SPARCstation_1</a><br />
+<a href="http://neriki.free.fr/sparcstation.html">neriki.free.fr/sparcstation.html</a><br />
+<a href="https://web.archive.org/web/20061122163446/http://mo5.com/musee/fiche.php?id=sparcstation1">www.mo5.com/musee/fiche.php?id=sparcstation1</a><br />
+<a href="https://web.archive.org/web/20100706200101/http://www.ice.mtu.edu/~jamyles/docs/fe/docs/wcd00007/wcd00734.htm">www.ice.mtu.edu/~jamyles/docs/fe/docs/wcd00007/wcd00734.htm</a></p>
+</blockquote>]]></description>
+    <pubDate>Mon, 04 Sep 2006 00:00:00 UT</pubDate>
+    <guid>https://nezetic.net/posts/2006-09-04-Sparcstation1/index.html</guid>
     <dc:creator>Cédric</dc:creator>
 </item>
 <item>
     <title>OpenBSD 101, c'est bien</title>
-    <link>http://www.nezetic.net/posts/2006-07-09-OpenBSD101/index.html</link>
-    <description>Découverte du site OpenBSD 101</description>
+    <link>https://nezetic.net/posts/2006-07-09-OpenBSD101/index.html</link>
+    <description><![CDATA[<p>J’ai découvert le site <strong>OpenBSD 101</strong> il y a quelque temps lorsqu’il
+était encore hébergé sur WBG, et je ne résiste pas à l’envie de lui
+faire un peu de publicité.</p>
+<p>OpenBSD vous tente, mais vous avez peur de vous lancer, peur que ce
+merveilleux système d’exploitation soit trop compliqué, trop obscur
+pour vous ? Alors, allez donc faire un tour à cette adresse :
+<a href="https://web.archive.org/web/20060614113737/http://www.openbsd101.com/" title="Archive">www.openbsd101.com</a> <em>(En anglais)</em>, et vous
+changerez d’avis.</p>
+<p>Et pour ceux qui ne connaissent pas encore OpenBSD :
+<a href="https://www.openbsd.org/">www.openbsd.org</a></p>
+<p><em>Mise à jour (2026) : le site OpenBSD 101 n’existe plus, le lien ci-dessus mène à une archive. Pour une
+alternative actuelle, différente mais dans le même esprit :
+<a href="https://www.openbsdhandbook.com">www.openbsdhandbook.com</a> (en anglais).</em></p>]]></description>
     <pubDate>Sun, 09 Jul 2006 00:00:00 UT</pubDate>
-    <guid>http://www.nezetic.net/posts/2006-07-09-OpenBSD101/index.html</guid>
+    <guid>https://nezetic.net/posts/2006-07-09-OpenBSD101/index.html</guid>
     <dc:creator>Cédric</dc:creator>
 </item>
 <item>
     <title>Sources d'ImSekR disponibles</title>
-    <link>http://www.nezetic.net/posts/2006-07-07-Welcome_ImSekR/index.html</link>
-    <description>Annonce de la disponibilité des sources d'ImSekR</description>
+    <link>https://nezetic.net/posts/2006-07-07-Welcome_ImSekR/index.html</link>
+    <description><![CDATA[<p>Les sources d’ImSekR, un projet de “sniffer” réseau pour les messageries
+instantanées, sont disponibles sur mon site sous licence
+<a href="https://www.freebsd.org/copyright/license.html">BSD</a>.</p>
+<p>Il ne s’agit que d’une première version, relativement stable, mais
+sûrement pas sans bugs.</p>
+<p>Pour plus d’informations : Page du projet ImSekR</p>]]></description>
     <pubDate>Fri, 07 Jul 2006 00:00:00 UT</pubDate>
-    <guid>http://www.nezetic.net/posts/2006-07-07-Welcome_ImSekR/index.html</guid>
+    <guid>https://nezetic.net/posts/2006-07-07-Welcome_ImSekR/index.html</guid>
     <dc:creator>Cédric</dc:creator>
 </item>
 <item>
     <title>Adaptateur DB25/DB9 pour liaisons séries</title>
-    <link>http://www.nezetic.net/posts/2006-07-07-Adapter_DB25_DB9/index.html</link>
-    <description>Réaliser un adaptateur DB25/DB9 pour liaisons séries</description>
+    <link>https://nezetic.net/posts/2006-07-07-Adapter_DB25_DB9/index.html</link>
+    <description><![CDATA[<h2 id="introduction">Introduction</h2>
+<p>Il arrive parfois que certaines machines, comme quelques stations SUN
+par exemple, n’aient pas de connecteurs série au format DB9 mâle, mais
+au format DB25.</p>
+<p>Ceci pose problème, car les câbles DB9/DB25 ne sont pas forcément
+évidents à trouver à bon prix.</p>
+<!--MORE-->
+<p>Il existe sur le net quelques articles expliquant comment réaliser
+soi-même un câble de ce type (voir par exemple le très bon article de
+<a href="https://web.archive.org/web/20091015023317/http://www.sunwizard.net/html/articles/jsp001.html">Sunwizard</a>), mais
+ne serait-il pas plus judicieux de réaliser un simple adaptateur
+permettant d’utiliser un bon vieux câble série standard (en DB9 donc)
+que beaucoup d’entre vous possèdent déjà.</p>
+<p>C’est ici ce que je propose de réaliser très simplement.</p>
+<h2 id="réalisation">Réalisation</h2>
+<p>Pour réaliser votre adaptateur, vous n’aurez besoin que de 2
+connecteurs, respectivement au format DB9 et DB25. On les trouve très
+facilement dans n’importe quel magasin d’électronique, ou on peut les
+commander par correspondance pour un prix dérisoire.<br />
+Viendront s’ajouter un fer à souder, et du fil électrique (voir des
+fils, de différentes couleurs, ce sera plus facile).</p>
+<p>Sur le schéma présenté ici, ce sont les faces extérieures des
+connecteurs que vous voyez. La numérotation correspond à cette vue
+externe : <strong>côté soudure, elle est inversée</strong>.</p>
+<p><img src="https://nezetic.net/images/8.png" title="Adaptateur DB25 vers DB9" class="img-right" decoding="async" loading="lazy" width="400" height="150" alt="Adaptateur DB25 vers DB9" /></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">DB 25</th>
+<th style="text-align: left;">DB 9</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">3</td>
+</tr>
+<tr>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">2</td>
+</tr>
+<tr>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">7</td>
+</tr>
+<tr>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">8</td>
+</tr>
+<tr>
+<td style="text-align: left;">6 et 8</td>
+<td style="text-align: left;">1 et 6</td>
+</tr>
+<tr>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr>
+<td style="text-align: left;">20</td>
+<td style="text-align: left;">4</td>
+</tr>
+</tbody>
+</table>
+<p>Une fois soudé, vérifiez bien qu’il n’y ait pas d’erreurs de câblage, ni
+d’extrémités de fils en contacts alors que ceux-ci ne devraient pas être
+reliés. Il est conseillé de s’aider d’un multimètre, même maison, une
+pile de 4,5 V et une petite ampoule suffisant à tester les connexions.</p>
+<p><strong>Attention</strong> : ne dénudez pas vos fils pour les souder sur une trop
+grande longueur, cela pourrait faciliter les courts-circuits à l’usage.<br />
+</p>
+<p><a href="https://nezetic.net/images/9.jpg" title="DB25 vers DB9 adaptateur sur une SS1"><img src="https://nezetic.net/images/thumbs/9.webp" class="img-right" decoding="async" loading="lazy" srcset="https://nezetic.net/images/thumbs/9.webp 1x, https://nezetic.net/images/thumbs/9@2x.webp 2x" width="125" height="141" alt="DB25 vers DB9 adaptateur sur une SS1" /></a><br />
+<strong>Exemple</strong> <em>(ci-contre)</em> : Connexion série entre une SparcStation 1 et
+un Armada M300 sous FreeBSD.</p>
+<p>On peut bien sûr finir le montage en l’intégrant dans un petit boîtier,
+ce qui évite de trop manipuler les fils de liaisons au risque de les
+dessouder.</p>]]></description>
     <pubDate>Fri, 07 Jul 2006 00:00:00 UT</pubDate>
-    <guid>http://www.nezetic.net/posts/2006-07-07-Adapter_DB25_DB9/index.html</guid>
+    <guid>https://nezetic.net/posts/2006-07-07-Adapter_DB25_DB9/index.html</guid>
+    <dc:creator>Cédric</dc:creator>
+</item>
+<item>
+    <title>Refroidir une SUN SparcStation 5</title>
+    <link>https://nezetic.net/posts/2006-07-05-Cooling_Down_SS5/index.html</link>
+    <description><![CDATA[<h2 id="introduction">Introduction</h2>
+<p>Heureux propriétaire d’une SparcStation 5, station SUN de milieu de
+gamme sortie en 1994 et version « light » de la SparcStation 20, j’ai
+rapidement été confronté à un problème de surchauffe, notamment des 2
+disques durs SCSI que peut embarquer la machine.</p>
+<p>En effet, au format SCA80, les disques sont empilés l’un sur l’autre
+dans un coin de la station plutôt isolée du système de ventilation
+classique.<br />
+</p>
+<p><a href="https://nezetic.net/images/7.jpg"><img src="https://nezetic.net/images/thumbs/7.webp" class="img-right" decoding="async" loading="lazy" srcset="https://nezetic.net/images/thumbs/7.webp 1x, https://nezetic.net/images/thumbs/7@2x.webp 2x" width="125" height="50" alt="SparcStation 5 vue de face" /></a><br />
+Après avoir fait quelques recherches sur le net, je n’ai trouvé aucune
+solution qui me convienne, l’un de mes critères principaux étant que je
+ne souhaitais pas modifier la machine de manière irréversible.</p>
+<!--MORE-->
+<h2 id="solution">Solution</h2>
+<p>Il s’agit d’un simple ventilateur fixé à
+un plateau métallique prévu pour prendre la place du lecteur de CD-ROM.</p>
+<ul>
+<li>Avantages : Aucune modification de la station
+<ul>
+<li>Réalisation simple avec quelques outils</li>
+<li>Aspect esthétique conservé (on peut faire plus propre que moi)</li>
+<li>Refroidissement efficace</li>
+</ul></li>
+<li>Inconvénients :
+<ul>
+<li>Supprime l’utilisation du CD-ROM</li>
+<li>Une source de bruit supplémentaire</li>
+</ul></li>
+</ul>
+<h2 id="réalisation">Réalisation</h2>
+<p>La plaque métallique utilisée provient d’une station HP et servait à
+occuper un emplacement 5¼. Celle-ci m’a permis de gagner du temps,
+car elle était pratiquement aux bonnes dimensions, mais l’on peut
+réaliser ce bricolage dans une plaque métallique quelconque, à condition
+qu’elle puisse être facile à scier et surtout qu’elle ne <strong>casse pas</strong>
+si on la tord (la mienne est en acier, ce n’était vraiment pas l’idéal
+de ce côté-là).<br />
+</p>
+<p><a href="https://nezetic.net/images/3.jpg"><img src="https://nezetic.net/images/thumbs/3.webp" class="img-right" decoding="async" loading="lazy" srcset="https://nezetic.net/images/thumbs/3.webp 1x, https://nezetic.net/images/thumbs/3@2x.webp 2x" width="125" height="93" alt="Support de disques avec son ventilateur, dans la SparcStation 5" /></a><br />
+Le support en lui-même fait 178 mm de long pour 147 mm de large, et le
+repli de la grille lui donne une hauteur de 40 mm.</p>
+<p><a href="https://nezetic.net/images/5.jpg"><img src="https://nezetic.net/images/thumbs/5.webp" class="img-left" decoding="async" loading="lazy" srcset="https://nezetic.net/images/thumbs/5.webp 1x, https://nezetic.net/images/thumbs/5@2x.webp 2x" width="125" height="93" alt="Intérieur de la SparcStation 5 avec le support installé" /></a>
+La partie pliée où est fixé le ventilateur a été réalisée dans un étau
+(j’ai fait avec les moyens du bord) après avoir pratiqué 2 entailles de
+20 mm à la scie à métaux. Elle possède un angle relativement important,
+qui dépend des dimensions du ventilateur.<br />
+</p>
+<p><a href="https://nezetic.net/images/4.jpg"><img src="https://nezetic.net/images/thumbs/4.webp" class="img-right" decoding="async" loading="lazy" srcset="https://nezetic.net/images/thumbs/4.webp 1x, https://nezetic.net/images/thumbs/4@2x.webp 2x" width="125" height="94" alt="Support avec le ventilateur fixé sur la partie pliée" /></a><br />
+Concernant celui-ci, il provient d’un ventirad de Pentium III, et
+mesure 60×60 mm. Il a l’avantage d’être relativement silencieux, mais
+assez puissant pour assurer un flux d’air important. Il est vissé
+solidement à la plaque (après avoir réalisé les trous nécessaires). Pour
+l’alimenter, j’ai utilisé un adaptateur que j’ai branché sur
+l’alimentation du lecteur de CD-ROM.</p>
+<p><strong>Attention</strong> : ne surtout pas créer de contacts entre le fil noir et le
+fil rouge au moment d’adapter les connectiques. J’utilise pour cela une
+méthode très simple : 2 soudures propres, chacune entourée de ruban
+adhésif, et le tout de nouveau rassemblé avec ce même ruban. On voit sur
+le fil la partie avec du ruban adhésif qui protège mes soudures.</p>
+<p><a href="https://nezetic.net/images/6.jpg"><img src="https://nezetic.net/images/6t.jpg" class="img-left" decoding="async" loading="lazy" width="125" height="93" alt="La station une fois le travail terminé" /></a></p>
+<p>La station une fois le travail terminé. Plutôt discret, et je pense
+qu’on peut faire bien plus beau. N’hésitez pas à <a href="https://nezetic.net/contact/">me contacter</a>
+pour m’envoyer vos réalisations.</p>
+<p>Grand merci à Zeta pour son aide ;)</p>]]></description>
+    <pubDate>Wed, 05 Jul 2006 00:00:00 UT</pubDate>
+    <guid>https://nezetic.net/posts/2006-07-05-Cooling_Down_SS5/index.html</guid>
+    <dc:creator>Cédric</dc:creator>
+</item>
+<item>
+    <title>L'Indy</title>
+    <link>https://nezetic.net/posts/2006-06-27-Indy/index.html</link>
+    <description><![CDATA[<h2 id="introduction">Introduction</h2>
+<p>L’Indy (nom de code « Guinness ») est une station de travail sortie
+officiellement en 1993 pour succéder à l’
+<a href="https://en.wikipedia.org/wiki/SGI_Indigo">Indigo</a>. Conçu et
+commercialisé par <a href="https://fr.wikipedia.org/wiki/Silicon_Graphics">Silicon
+Graphics</a>, elle
+représentait pour la firme l’aboutissement de ses efforts pour s’imposer
+sur le marché de l’édition, de la CAO ou plus simplement du multimédia,
+à une période où ces domaines étaient déjà dominés par Apple.</p>
+<p>Vendue comme une station « bon marché », ses capacités techniques
+excellentes en graphisme 2D, ainsi que des équipements rares sur les
+stations de l’époque, comme des entrées sorties numériques et
+analogiques ainsi qu’une entrée S-Vidéo, voire même inédits, comme une
+caméra vidéo (la fameuse IndyCam) et un adaptateur
+<a href="https://fr.wikipedia.org/wiki/RNIS">ISDN</a> permettant la
+visioconférence, ont construit sa réputation.</p>
+<!--MORE-->
+<p>La machine se présente au format desktop (40.6 × 35.6 × 7.6 cm pour un
+poids de 7 kg) et son joli boîtier couleur bleue pastel, robuste et bien
+conçu, peut supporter un écran CRT de bonne taille sans montrer le
+moindre signe de faiblesse.</p>
+<h2 id="hardware">Hardware</h2>
+<p>L’Indy supporte 4 types de processeurs MIPS 64 bits, sur une carte mère
+IP24 intégrant 8 emplacements mémoire pouvant chacun supporter de 4 à
+32 Mo de RAM ECC SIMM en 72 pins (soit un maximum de 256 Mo de RAM d’un
+type très courant).</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Processeur</th>
+<th style="text-align: left;">Fréquence</th>
+<th style="text-align: left;">Cache L2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">R4000PC</td>
+<td style="text-align: left;">100 MHz</td>
+<td style="text-align: left;">Non</td>
+</tr>
+<tr>
+<td style="text-align: left;">R4000SC</td>
+<td style="text-align: left;">100 MHz</td>
+<td style="text-align: left;">1 Mo</td>
+</tr>
+<tr>
+<td style="text-align: left;">R4400SC</td>
+<td style="text-align: left;">100 MHz</td>
+<td style="text-align: left;">1 Mo</td>
+</tr>
+<tr>
+<td style="text-align: left;">^</td>
+<td style="text-align: left;">150 MHz</td>
+<td style="text-align: left;">^</td>
+</tr>
+<tr>
+<td style="text-align: left;">^</td>
+<td style="text-align: left;">175 MHz</td>
+<td style="text-align: left;">^</td>
+</tr>
+<tr>
+<td style="text-align: left;">^</td>
+<td style="text-align: left;">200 MHz</td>
+<td style="text-align: left;">^</td>
+</tr>
+<tr>
+<td style="text-align: left;">R4600PC</td>
+<td style="text-align: left;">100 MHz</td>
+<td style="text-align: left;">Non</td>
+</tr>
+<tr>
+<td style="text-align: left;">^</td>
+<td style="text-align: left;">133 MHz</td>
+<td style="text-align: left;">^</td>
+</tr>
+<tr>
+<td style="text-align: left;">R4600SC</td>
+<td style="text-align: left;">133 MHz</td>
+<td style="text-align: left;">512 Ko</td>
+</tr>
+<tr>
+<td style="text-align: left;">R5000PC</td>
+<td style="text-align: left;">150 MHz</td>
+<td style="text-align: left;">Non</td>
+</tr>
+<tr>
+<td style="text-align: left;">R5000SC</td>
+<td style="text-align: left;">150 MHz</td>
+<td style="text-align: left;">512 Ko</td>
+</tr>
+<tr>
+<td style="text-align: left;">^</td>
+<td style="text-align: left;">180 MHz</td>
+<td style="text-align: left;">^</td>
+</tr>
+</tbody>
+</table>
+<p>Il existe seulement 3 types de cartes vidéo pour cette station, ce qui
+est peu comparé aux autres systèmes SGI, avec une carte d’entrée de
+gamme supportant une palette de couleurs de 8 bits seulement.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nom</th>
+<th style="text-align: left;">Caractéristiques</th>
+<th style="text-align: left;">Transformation HW</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Entry</td>
+<td style="text-align: left;">Couleurs 8 bits</td>
+<td style="text-align: left;">Non</td>
+</tr>
+<tr>
+<td style="text-align: left;">XL24</td>
+<td style="text-align: left;">Couleurs 24 bits</td>
+<td style="text-align: left;">Non</td>
+</tr>
+<tr>
+<td style="text-align: left;">XZ</td>
+<td style="text-align: left;">Couleurs 24 bits</td>
+<td style="text-align: left;">Oui</td>
+</tr>
+</tbody>
+</table>
+<p>La station possède à l’origine seulement un disque dur au format SCSI 50
+pins, ainsi qu’un lecteur de disquettes (un peu particulier) en interne.</p>
+<p>Au niveau des autres périphériques principaux, elle supporte les
+claviers/souris au format PS/2, le standard PC actuel, et possède une
+interface réseau 10 Mbit/s au format RJ45. Seule la sortie vidéo, au format
+13W3 (en général), peut poser problème lors de l’achat aujourd’hui
+d’une telle machine, car elle nécessite soit un écran possédant une
+entrée 13W3 (si possible, un écran SGI, tant qu’à faire), soit un
+adaptateur avec un écran compatible SOG (sync on green, <a href="https://web.archive.org/web/20100504140151/http://playstation2-linux.com/sog.php">voir ce
+site</a>), ce qui n’est pas non plus
+très difficile à trouver.</p>
+<h2 id="software">Software</h2>
+<p>Comme tous les systèmes SGI de l’époque, la station tourne sous
+<a href="https://fr.wikipedia.org/wiki/Irix">IRIX</a>, l’OS propriétaire de SGI.</p>
+<p>Commercialisée sous IRIX 5.1, cette station peut aujourd’hui profiter de
+la dernière version majeure d’IRIX, la 6.5, à condition d’avoir la chance
+de procéder à l’une des dernières évolutions et de ne pas monter trop haut
+dans les versions mineures (la 6.5.22 semble fonctionner, une R5000 avec
+le maximum de RAM est conseillée).</p>
+<p>Dans le cas contraire, IRIX 6.2 tourne très bien sur les Indy un peu
+plus faibles (dont la mienne fait partie).</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Pour conclure, il s’agit d’une station de conception robuste disposant
+d’un hardware relativement performant, voire innovant (dans le
+contexte de l’époque).</p>
+<p>Un point suffisamment rare chez SGI pour être signalé, elle se distingue
+dans ses dernières versions (évolution de l’alimentation de marque Sony
+dans les plus récentes) par son silence, rompu uniquement par le bruit
+du disque dur.</p>
+<p>Malgré une puissance qui ferait sourire certains, elle reste donc très
+agréable à utiliser et permet de profiter d’IRIX pour un prix d’achat
+dérisoire (on trouve de très bonnes Indy dans les 50-75 euros).</p>
+<p>Pour plus d’informations, j’ai mis à disposition mes sources (toutes en
+anglais malheureusement).</p>
+<h2 id="mon-indy">Mon Indy</h2>
+<p>Je possède une Indy avec un processeur R4600SC 133 MHz, 64 Mo de RAM et une
+carte graphique Entry / XL8.</p>
+<p><a href="https://nezetic.net/images/2.jpg" title="Mon Indy"><img src="https://nezetic.net/images/thumbs/2.webp" class="img-right" decoding="async" loading="lazy" srcset="https://nezetic.net/images/thumbs/2.webp 1x, https://nezetic.net/images/thumbs/2@2x.webp 2x" width="125" height="73" alt="Mon Indy" /></a><br />
+Ce n’est donc pas une bête de course (j’ai encore la moitié des
+emplacements de RAM à remplir), mais cela reste une configuration
+sympathique et très fluide sous IRIX 6.2.</p>
+<pre><code>nezetic 1# hinv -v
+Iris Audio Processor: version A2 revision 4.1.0
+1 133 MHZ IP22 Processor
+FPU: MIPS R4600 Floating Point Coprocessor Revision: 2.0
+CPU: MIPS R4600 Processor Chip Revision: 2.0
+On-board serial ports: 2
+On-board bi-directional parallel port
+Data cache size: 16 Kbytes
+Instruction cache size: 16 Kbytes
+Secondary unified instruction/data cache size: 512 Kbytes on Processor 0
+Main memory size: 64 Mbytes
+Vino video: unit 0, revision 0, IndyCam not connected
+Integral ISDN: Basic Rate Interface unit 0, revision 1.0
+Integral Ethernet: ec0, version 1
+Integral SCSI controller 0: Version WD33C93B, revision D
+  Disk drive: unit 1 on SCSI controller 0
+Graphics board: Indy 8-bit</code></pre>
+<p><a href="http://www.sgistuff.net/hardware/systems/documents/007-9804-060-indy.pdf" title="PDF">Guide de l’utilisateur pour
+l’Indy</a></p>
+<blockquote>
+<p>Sources :<br />
+<a href="https://en.wikipedia.org/wiki/SGI_Indy">en.wikipedia.org/wiki/SGI_Indy</a><br />
+<a href="https://hardware.majix.org/computers/sgi.indy/">hardware.majix.org/computers/sgi.indy</a><br />
+<a href="http://www.sgistuff.net/hardware/systems/indy.html">sgistuff.net/hardware/systems/indy.html</a><br />
+<a href="http://www.obsolyte.com/sgi_indy">www.obsolyte.com/sgi_indy</a></p>
+</blockquote>]]></description>
+    <pubDate>Tue, 27 Jun 2006 00:00:00 UT</pubDate>
+    <guid>https://nezetic.net/posts/2006-06-27-Indy/index.html</guid>
+    <dc:creator>Cédric</dc:creator>
+</item>
+<item>
+    <title>(Re)Ouverture officielle</title>
+    <link>https://nezetic.net/posts/2006-06-26-ReOpen/index.html</link>
+    <description><![CDATA[<p>Bonjour le Web,</p>
+<p>Voilà, après un an sans nouvelles, j’ai décidé de rouvrir ma page
+personnelle.</p>
+<p>La raison en est simple, un besoin d’expression, l’envie de partager mes
+expériences, mes connaissances, principalement liées à l’informatique, et
+aux systèmes UNIX en particulier.</p>
+<p>Envie de diffuser aussi le fruit de mon travail, notamment des projets de
+logiciels libres sur lesquels je passe une partie de mon temps libre.</p>
+<p>Nouveau départ, donc, qui implique pas mal de nouveautés : changement
+d’hébergeur, nouveau site avec un design remis au goût du jour, plus de
+souplesse dans la gestion du contenu grâce à l’utilisation du CMS
+Drupal.</p>
+<p>Bien sûr, pas mal de choses sont encore à mettre en place, le site est
+pour l’instant réduit à son minimum, mais le contenu viendra petit à
+petit, au gré des mises à jour.</p>
+<p>Sur ce, plus qu’à casser la bouteille de champagne sur la coque de mon
+nouveau vaisseau, et souhaitons-lui une navigation pleine de bonnes
+choses sur l’océan que représente Internet aujourd’hui.</p>]]></description>
+    <pubDate>Mon, 26 Jun 2006 00:00:00 UT</pubDate>
+    <guid>https://nezetic.net/posts/2006-06-26-ReOpen/index.html</guid>
     <dc:creator>Cédric</dc:creator>
 </item>
 

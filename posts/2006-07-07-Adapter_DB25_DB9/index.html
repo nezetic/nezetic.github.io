@@ -1,126 +1,29 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="generator" content="Hakyll"/>
-    <title>NeZetiC.net - Adaptateur DB25/DB9 pour liaisons séries</title>
-    <link rel="stylesheet" type="text/css" href="../../css/default.css"/>
-    <link rel="stylesheet" type="text/css" href="../../css/lightbox.css"/>
-    <link rel="alternate" type="application/atom+xml" title="NeZetiC.net - Atom 1.0" href="../../atom.xml"/>
-    <link rel="alternate" type="application/rss+xml" title="NeZetiC.net - RSS" href="../../rss.xml"/>
-    <link href="https://fonts.googleapis.com/css?family=Finger+Paint" rel="stylesheet" type="text/css"/>
-    <script type="text/javascript" src="../../js/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="../../js/lightbox-2.6.min.js"></script>
-    <script type="text/javascript" src="../../js/main.js"></script>
-  </head>
-  <body>
-    <div id="main">
-      <div id="header">
-        <a href="../../">NeZetiC.net</a>
-      </div>
-      <div id="sidebar">
-        <h1 id="navigation">Navigation</h1>
-        <p>
-          <a href="../../">accueil</a>
-          <a href="../../articles/">articles</a>
-          <a href="../../contact/">contact</a>
-          <a href="../../about/">a propos</a>
-        </p>
-        <h1 id="projects">Projects</h1>
-        <p>
-          <a href="../../projects/tremgen/">TremGen</a>
-          <a href="../../projects/baldr/">Baldr</a>
-          <a href="../../projects/eyebo/">EyeBO</a>
-          <a href="../../projects/imsekr/">ImSekR</a>
-        </p>
-        <p>
-          <a href="../../rss.xml" title="RSS Flux">
-            <img src="../../images/rss-small.png" alt="“logo”"/>
-          </a>
-        </p>
-      </div>
-      <div id="content">
-        <div id="posts">
-          <ul class="posts">
-            <li class="entry">
-              <h2 class="entrytitle">
-                <a href="../../posts/2006-07-07-Adapter_DB25_DB9/">Adaptateur DB25/DB9 pour liaisons séries</a>
-              </h2>
-              <div class="entrybody">
-                <h2 id="introduction">Introduction</h2>
-                <p>Il arrive parfois que certaines machines, comme quelques stations SUN par exemple, n’aient pas des connecteurs séries au format DB9 mâle, mais au format DB25.</p>
-                <p>Ceci pose problème, car les câbles DB9/DB25 ne sont pas forcement évident à trouver à bon prix.</p>
-                <p>Il existe sur le net quelques articles expliquant comment réaliser soit même un câble de ce type (voir par exemple le très bon article de <a href="http://www.sunwizard.net/html/articles/jsp001.html">Sunwizard</a>), mais ne serait-il pas plus judicieux de réaliser un simple adaptateur permettant d’utiliser un bon vieux câble série standard (en DB9 donc) que beaucoup d’entre vous possèdent déjà.</p>
-                <p>C’est ici ce que je propose de réaliser très simplement.</p>
-                <h2 id="réalisation">Réalisation</h2>
-                <p>Pour réaliser votre adaptateur, vous n’aurez besoin que de 2 connecteurs, respectivement au format DB9 et DB25. On les trouve très facilement dans n’importe quel magasin d‘électronique, ou on peut les commander par correspondance pour un prix dérisoire.<br/>
-Viendront s’ajouter un fer à souder, et du fil électrique (voir des fils, de différentes couleurs, ce sera plus facile).</p>
-                <p>Sur le schéma présenté ici, ce sont les faces extérieures des connecteurs que vous voyez. La numérotation correspond à cette vue externe : <strong>côté soudure, elle est inversée</strong>.</p>
-                <figure>
-                  <img src="../../images/8.png" title="DB25 to DB9" alt="img_right"/>
-                  <figcaption>img_right</figcaption>
-                </figure>
-                <table>
-                  <thead>
-                    <tr class="header">
-                      <th style="text-align: left;">DB 25</th>
-                      <th style="text-align: left;">DB 9</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr class="odd">
-                      <td style="text-align: left;">2</td>
-                      <td style="text-align: left;">3</td>
-                    </tr>
-                    <tr class="even">
-                      <td style="text-align: left;">3</td>
-                      <td style="text-align: left;">2</td>
-                    </tr>
-                    <tr class="odd">
-                      <td style="text-align: left;">4</td>
-                      <td style="text-align: left;">7</td>
-                    </tr>
-                    <tr class="even">
-                      <td style="text-align: left;">5</td>
-                      <td style="text-align: left;">8</td>
-                    </tr>
-                    <tr class="odd">
-                      <td style="text-align: left;">6 et 8</td>
-                      <td style="text-align: left;">1 et 6</td>
-                    </tr>
-                    <tr class="even">
-                      <td style="text-align: left;">7</td>
-                      <td style="text-align: left;">5</td>
-                    </tr>
-                    <tr class="odd">
-                      <td style="text-align: left;">20</td>
-                      <td style="text-align: left;">4</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <p>Une fois soudé, vérifiez bien qu’il n’y ait pas d’erreurs de câblage, ni d’extrémités de fils en contacts alors que ceux-ci ne devraient pas être reliés. Il est conseillé de s’aider d’un multimètre, même maison, une pile de 4,5 V et une petite ampoule suffisant à tester les connexions.</p>
-                <p>
-                  <strong>Attention</strong> : ne dénudez pas vos fils pour les souder sur une trop grande longueur, cela pourrait faciliter les cours circuits à l’usage.<br/>
-                </p>
-                <p>
-                  <a href="../../images/9.jpg" title="DB25 vers DB9 adaptateur sur une SS1">
-                    <img src="../../images/9t.jpg" alt="img_right"/>
-                  </a>
-                  <br/>
-                  <strong>Example</strong>
-                  <em>(ci contre)</em> : Connexion série entre une SparStation 1 et un Armada M300 sous FreeBSD.</p>
-                <p>On peut bien sûr finir le montage en l’intégrant dans un petit boîtier, ce qui évite de trop manipuler les fils de liaisons au risque de les dessouder.</p>
-                <div class="signature">
-                  <p>par <em>Cédric TESSIER</em> le <strong>07/07/2006</strong></p>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div id="footer">
-                Site généré par <a href="http://jaspervdj.be/hakyll/">hakyll</a>.
-            </div>
-    </div>
-  </body>
-</html>
+<!doctype html><html lang="fr" data-auto-lang data-alt-lang="en" data-alt-url="/en/posts/2006-07-07-Adapter_DB25_DB9/"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Hakyll"><meta name="description" content="Réaliser un adaptateur DB25/DB9 pour liaisons séries"><link rel="canonical" href="https://nezetic.net/posts/2006-07-07-Adapter_DB25_DB9/"><link rel="alternate" hreflang="fr" href="https://nezetic.net/posts/2006-07-07-Adapter_DB25_DB9/"><link rel="alternate" hreflang="en" href="https://nezetic.net/en/posts/2006-07-07-Adapter_DB25_DB9/"><link rel="alternate" hreflang="x-default" href="https://nezetic.net/posts/2006-07-07-Adapter_DB25_DB9/"><meta property="og:site_name" content="nezetic.net"><meta property="og:type" content="article"><meta property="og:title" content="Adaptateur DB25/DB9 pour liaisons séries"><meta property="og:description" content="Réaliser un adaptateur DB25/DB9 pour liaisons séries"><meta property="og:url" content="https://nezetic.net/posts/2006-07-07-Adapter_DB25_DB9/"><meta property="og:image" content="https://nezetic.net/images/8.png"><meta property="og:image:width" content="400"><meta property="og:image:height" content="150"><meta property="og:locale" content="fr_FR"><meta property="og:locale:alternate" content="en_US"><meta property="article:published_time" content="2006-07-07"><meta name="twitter:card" content="summary"><script type="application/ld+json">[{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Cédric TESSIER","url":"https://nezetic.net/about/"},"dateModified":"2006-07-07T12:00:00Z","datePublished":"2006-07-07T12:00:00Z","description":"Réaliser un adaptateur DB25/DB9 pour liaisons séries","headline":"Adaptateur DB25/DB9 pour liaisons séries","image":"https://nezetic.net/images/8.png","inLanguage":"fr","mainEntityOfPage":"https://nezetic.net/posts/2006-07-07-Adapter_DB25_DB9/","url":"https://nezetic.net/posts/2006-07-07-Adapter_DB25_DB9/"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://nezetic.net/","name":"Accueil","position":1},{"@type":"ListItem","item":"https://nezetic.net/posts/","name":"Tous les écrits","position":2},{"@type":"ListItem","item":"https://nezetic.net/posts/2006-07-07-Adapter_DB25_DB9/","name":"Adaptateur DB25/DB9 pour liaisons séries","position":3}]}]</script><title>Adaptateur DB25/DB9 pour liaisons séries - nezetic.net</title><script>(function(){"use strict";function i(e){return String(e||"").toLowerCase().split("-")[0]}var e,t,s,a,r,l,d,c=document.documentElement,n=i(c.getAttribute("lang")),o=i(c.getAttribute("data-alt-lang")),u=c.getAttribute("data-alt-url");if(!n||!o||!u||n===o)return;try{e=localStorage.getItem("lang"),d=sessionStorage.getItem("lang-redirected")}catch{return}if(e=i(e),e&&e!==n&&e!==o){try{localStorage.removeItem("lang")}catch{}e=""}if(d)return;if(t=null,e===n||e===o)t=e;else if(!e&&c.getAttribute("data-auto-lang")==="1"){for(l=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language],a=0;a<l.length&&!t;a++)r=i(l[a]),(r===n||r===o)&&(t=r);t||(t="en")}if(!t||t===n)return;try{s=new URL(u,window.location.href)}catch{return}if(s.protocol!=="https:"&&s.protocol!=="http:"||s.origin!==window.location.origin)return;try{sessionStorage.setItem("lang-redirected","1")}catch{return}window.location.replace(s.href)})()</script><script>(function(){"use strict";var e=null;try{e=localStorage.getItem("theme")}catch{}e!=="dark"&&e!=="light"&&(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})()</script><link rel="stylesheet" href="../../js/vendor/parvus/parvus.min.css"><link rel="stylesheet" href="../../css/default.css"><link rel="icon" type="image/svg+xml" href="../../images/favicon.svg"><link rel="icon" type="image/png" sizes="32x32" href="../../images/favicon-32.png"><link rel="apple-touch-icon" href="../../images/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" title="nezetic.net - Atom 1.0" href="../../atom.xml"><link rel="alternate" type="application/rss+xml" title="nezetic.net - RSS" href="../../rss.xml"><link rel="preload" href="../../fonts/NeZetiCTitle.woff2" as="font" type="font/woff2" crossorigin><div id="main"><nav id="languages"><a href="../../en/posts/2006-07-07-Adapter_DB25_DB9/" hreflang="en">English</a>
+<button id="theme-toggle" type="button" aria-label="Changer de thème" title="Changer de thème">
+<img class="icon-moon" src="../../images/theme-moon.svg" alt width="20" height="20">
+<img class="icon-sun" src="../../images/theme-sun.svg" alt width="20" height="20"></button></nav><header id="header"><a href="../../">NeZetiC.net</a></header><aside id="sidebar"><h1 id="navigation">Navigation</h1><p><a href="../../">Accueil</a>
+<a href="../../articles/">Articles</a>
+<a href="../../contact/">Contact</a>
+<a href="../../about/">À propos</a></aside><main id="content"><div id="posts"><ul class="posts"><li class="entry"><h2 class="entrytitle"><a href="../../posts/2006-07-07-Adapter_DB25_DB9/">Adaptateur DB25/DB9 pour liaisons séries</a></h2><div class="entrybody"><h2 id="introduction">Introduction</h2><p>Il arrive parfois que certaines machines, comme quelques stations SUN
+par exemple, n’aient pas de connecteurs série au format DB9 mâle, mais
+au format DB25.<p>Ceci pose problème, car les câbles DB9/DB25 ne sont pas forcément
+évidents à trouver à bon prix.</p><p>Il existe sur le net quelques articles expliquant comment réaliser
+soi-même un câble de ce type (voir par exemple le très bon article de
+<a href="https://web.archive.org/web/20091015023317/http://www.sunwizard.net/html/articles/jsp001.html">Sunwizard</a>), mais
+ne serait-il pas plus judicieux de réaliser un simple adaptateur
+permettant d’utiliser un bon vieux câble série standard (en DB9 donc)
+que beaucoup d’entre vous possèdent déjà.<p>C’est ici ce que je propose de réaliser très simplement.<h2 id="réalisation">Réalisation</h2><p>Pour réaliser votre adaptateur, vous n’aurez besoin que de 2
+connecteurs, respectivement au format DB9 et DB25. On les trouve très
+facilement dans n’importe quel magasin d’électronique, ou on peut les
+commander par correspondance pour un prix dérisoire.<br>Viendront s’ajouter un fer à souder, et du fil électrique (voir des
+fils, de différentes couleurs, ce sera plus facile).<p>Sur le schéma présenté ici, ce sont les faces extérieures des
+connecteurs que vous voyez. La numérotation correspond à cette vue
+externe : <strong>côté soudure, elle est inversée</strong>.<p><img src="../../images/8.png" title="Adaptateur DB25 vers DB9" class="img-right" decoding="async" loading="lazy" width="400" height="150" alt="Adaptateur DB25 vers DB9"><table><thead><tr><th style="text-align:left">DB 25<th style="text-align:left">DB 9<tbody><tr><td style="text-align:left">2<td style="text-align:left">3<tr><td style="text-align:left">3<td style="text-align:left">2<tr><td style="text-align:left">4<td style="text-align:left">7<tr><td style="text-align:left">5<td style="text-align:left">8<tr><td style="text-align:left">6 et 8<td style="text-align:left">1 et 6<tr><td style="text-align:left">7<td style="text-align:left">5<tr><td style="text-align:left">20<td style="text-align:left">4</table><p>Une fois soudé, vérifiez bien qu’il n’y ait pas d’erreurs de câblage, ni
+d’extrémités de fils en contacts alors que ceux-ci ne devraient pas être
+reliés. Il est conseillé de s’aider d’un multimètre, même maison, une
+pile de 4,5 V et une petite ampoule suffisant à tester les connexions.<p><strong>Attention</strong> : ne dénudez pas vos fils pour les souder sur une trop
+grande longueur, cela pourrait faciliter les courts-circuits à l’usage.<br><p><a href="../../images/9.jpg" title="DB25 vers DB9 adaptateur sur une SS1"><img src="../../images/thumbs/9.webp" class="img-right" decoding="async" loading="lazy" srcset="../../images/thumbs/9.webp 1x, ../../images/thumbs/9@2x.webp 2x" width="125" height="141" alt="DB25 vers DB9 adaptateur sur une SS1"></a><br><strong>Exemple</strong> <em>(ci-contre)</em> : Connexion série entre une SparcStation 1 et
+un Armada M300 sous FreeBSD.<p>On peut bien sûr finir le montage en l’intégrant dans un petit boîtier,
+ce qui évite de trop manipuler les fils de liaisons au risque de les
+dessouder.<div class="signature"><p>par <em>Cédric TESSIER</em> le <strong><time datetime="2006-07-07">07/07/2006</time></strong></div></div><nav class="postnav"><span class="prev">&#171; <a href="../../posts/2006-07-07-Welcome_ImSekR/" rel="prev">Sources d'ImSekR disponibles</a></span>
+<span class="next"><a href="../../posts/2006-07-09-OpenBSD101/" rel="next">OpenBSD 101, c'est bien</a> &#187;</span></nav></ul></div></main><footer id="footer">Site généré par <a href="https://jaspervdj.be/hakyll/">Hakyll</a>.</footer></div><script src="../../js/vendor/parvus/parvus.min.js"></script><script src="../../js/main.js"></script>

@@ -1,117 +1,38 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="generator" content="Hakyll"/>
-    <title>NeZetiC.net - Refroidir une SUN SparcStation 5</title>
-    <link rel="stylesheet" type="text/css" href="../../css/default.css"/>
-    <link rel="stylesheet" type="text/css" href="../../css/lightbox.css"/>
-    <link rel="alternate" type="application/atom+xml" title="NeZetiC.net - Atom 1.0" href="../../atom.xml"/>
-    <link rel="alternate" type="application/rss+xml" title="NeZetiC.net - RSS" href="../../rss.xml"/>
-    <link href="https://fonts.googleapis.com/css?family=Finger+Paint" rel="stylesheet" type="text/css"/>
-    <script type="text/javascript" src="../../js/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="../../js/lightbox-2.6.min.js"></script>
-    <script type="text/javascript" src="../../js/main.js"></script>
-  </head>
-  <body>
-    <div id="main">
-      <div id="header">
-        <a href="../../">NeZetiC.net</a>
-      </div>
-      <div id="sidebar">
-        <h1 id="navigation">Navigation</h1>
-        <p>
-          <a href="../../">accueil</a>
-          <a href="../../articles/">articles</a>
-          <a href="../../contact/">contact</a>
-          <a href="../../about/">a propos</a>
-        </p>
-        <h1 id="projects">Projects</h1>
-        <p>
-          <a href="../../projects/tremgen/">TremGen</a>
-          <a href="../../projects/baldr/">Baldr</a>
-          <a href="../../projects/eyebo/">EyeBO</a>
-          <a href="../../projects/imsekr/">ImSekR</a>
-        </p>
-        <p>
-          <a href="../../rss.xml" title="RSS Flux">
-            <img src="../../images/rss-small.png" alt="“logo”"/>
-          </a>
-        </p>
-      </div>
-      <div id="content">
-        <div id="posts">
-          <ul class="posts">
-            <li class="entry">
-              <h2 class="entrytitle">
-                <a href="../../posts/2006-07-05-Cooling_Down_SS5/">Refroidir une SUN SparcStation 5</a>
-              </h2>
-              <div class="entrybody">
-                <h2 id="introduction">Introduction</h2>
-                <p>Heureux propriétaire d’une SparcStation 5, station SUN de milieu de gamme sortie en 1994 et version « light » de la SparcStation 20, j’ai rapidement été confronté à un problème de surchauffe, notamment des 2 disques durs SCSI que peut embarquer la machine.</p>
-                <p>En effet, au format SCA80, les disques sont empilés l’un sur l’autre dans un coin de la station plutôt isolée du système de ventilation classique.<br/>
-                </p>
-                <p>
-                  <a href="../../images/7.jpg">
-                    <img src="../../images/7t.jpg" alt="img_right"/>
-                  </a>
-                  <br/>
-Après avoir fait quelques recherches sur le net, je n’ai trouvé aucune solution qui me convienne, l’un de mes critères principaux étant que je ne souhaitais pas modifier la machine de manière irréversible.</p>
-                <h2 id="solution">Solution</h2>
-                <p>Il s’agit d’un simple ventilateur fixé à un plateau métallique prévu pour prendre la place du lecteur de CD-ROM.</p>
-                <ul>
-                  <li>Avantages : Aucune modification de la station
-<ul>
-                      <li>Réalisation simple avec quelques outils</li>
-                      <li>Aspect esthétique conservé (on peut faire plus propre que moi)</li>
-                      <li>Refroidissement efficace</li>
-                    </ul></li>
-                  <li>Inconvénients :
-<ul>
-                      <li>Supprime l’utilisation du CD-ROM</li>
-                      <li>Une source de bruit supplémentaire</li>
-                    </ul></li>
-                </ul>
-                <h2 id="réalisation">Réalisation</h2>
-                <p>La plaque métallique utilisée provient d’une station HP et servait à occuper un emplacement 5“1/4. Celle-ci m’a permis de gagner du temps, car elle était pratiquement aux bonnes dimensions, mais l’on peut réaliser ce bricolage dans une plaque métallique quelconque, à condition qu’elle puisse être facile à scier et surtout qu’elle ne <strong>casse pas</strong> si on la tord (la mienne est en acier, ce n‘était vraiment pas l’idéal de ce côté-là).<br/>
-                </p>
-                <p>
-                  <a href="../../images/3.jpg">
-                    <img src="../../images/3t.jpg" alt="img_right"/>
-                  </a>
-                  <br/>
-Le support en lui-même fait 178 mm de long pour 147 mm de large, et le repli de la grille lui donne une hauteur de 40 mm.</p>
-                <p>
-                  <a href="../../images/5.jpg">
-                    <img src="../../images/5t.jpg" alt="img_left"/>
-                  </a> La partie pliée où est fixé le ventilateur a été réalisée dans un étau (j’ai fait avec les moyens du bord) après avoir pratiqué 2 entailles de 20 mm à la scie à métaux. Elle possède un angle relativement important, qui dépend des dimensions du ventilateur.<br/>
-                </p>
-                <p>
-                  <a href="../../images/4.jpg">
-                    <img src="../../images/4t.jpg" alt="img_right"/>
-                  </a>
-                  <br/>
-Concernant celui-ci, il provient d’un ventirad de Pentium III, et mesure 60×60 mm. Il a l’avantage d‘être relativement silencieux, mais assez puissant pour assurer un flux d’air important. Il est vissé solidement à la plaque (après avoir réalisé les trous nécessaires). Pour l’alimenter, j’ai utilisé un adaptateur que j’ai branché sur l’alimentation du lecteur de CD-ROM.</p>
-                <p>
-                  <strong>Attention</strong> : ne surtout pas créer de contacts entre le fil noir et le fil rouge au moment d’adapter les connectiques. J’utilise pour cela une méthode très simple : 2 soudures propres, chacune entourée de ruban adhésif, et le tout de nouveau rassemblé avec ce même ruban. On voit sur le fil la partie avec du ruban adhésif qui protège mes soudures.</p>
-                <p>
-                  <a href="../../images/6.jpg">
-                    <img src="../../images/6t.jpg" alt="img_left"/>
-                  </a>
-                </p>
-                <p>La station une fois le travail terminé. Plutôt discret, et je pense qu’on peut faire bien plus beau. N’hésitez pas à <a href="../../contact/">me contacter</a> pour m’envoyer vos réalisations.</p>
-                <p>Grand merci à Zeta pour son aide ;)</p>
-                <div class="signature">
-                  <p>par <em>Cédric TESSIER</em> le <strong>05/07/2006</strong></p>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div id="footer">
-                Site généré par <a href="http://jaspervdj.be/hakyll/">hakyll</a>.
-            </div>
-    </div>
-  </body>
-</html>
+<!doctype html><html lang="fr" data-auto-lang data-alt-lang="en" data-alt-url="/en/posts/2006-07-05-Cooling_Down_SS5/"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Hakyll"><meta name="description" content="Quelques astuces pour refroidir une SparcStation 5"><link rel="canonical" href="https://nezetic.net/posts/2006-07-05-Cooling_Down_SS5/"><link rel="alternate" hreflang="fr" href="https://nezetic.net/posts/2006-07-05-Cooling_Down_SS5/"><link rel="alternate" hreflang="en" href="https://nezetic.net/en/posts/2006-07-05-Cooling_Down_SS5/"><link rel="alternate" hreflang="x-default" href="https://nezetic.net/posts/2006-07-05-Cooling_Down_SS5/"><meta property="og:site_name" content="nezetic.net"><meta property="og:type" content="article"><meta property="og:title" content="Refroidir une SUN SparcStation 5"><meta property="og:description" content="Quelques astuces pour refroidir une SparcStation 5"><meta property="og:url" content="https://nezetic.net/posts/2006-07-05-Cooling_Down_SS5/"><meta property="og:image" content="https://nezetic.net/images/7.jpg"><meta property="og:image:width" content="411"><meta property="og:image:height" content="163"><meta property="og:locale" content="fr_FR"><meta property="og:locale:alternate" content="en_US"><meta property="article:published_time" content="2006-07-05"><meta name="twitter:card" content="summary_large_image"><script type="application/ld+json">[{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Cédric TESSIER","url":"https://nezetic.net/about/"},"dateModified":"2006-07-05T12:00:00Z","datePublished":"2006-07-05T12:00:00Z","description":"Quelques astuces pour refroidir une SparcStation 5","headline":"Refroidir une SUN SparcStation 5","image":"https://nezetic.net/images/7.jpg","inLanguage":"fr","mainEntityOfPage":"https://nezetic.net/posts/2006-07-05-Cooling_Down_SS5/","url":"https://nezetic.net/posts/2006-07-05-Cooling_Down_SS5/"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://nezetic.net/","name":"Accueil","position":1},{"@type":"ListItem","item":"https://nezetic.net/posts/","name":"Tous les écrits","position":2},{"@type":"ListItem","item":"https://nezetic.net/posts/2006-07-05-Cooling_Down_SS5/","name":"Refroidir une SUN SparcStation 5","position":3}]}]</script><title>Refroidir une SUN SparcStation 5 - nezetic.net</title><script>(function(){"use strict";function i(e){return String(e||"").toLowerCase().split("-")[0]}var e,t,s,a,r,l,d,c=document.documentElement,n=i(c.getAttribute("lang")),o=i(c.getAttribute("data-alt-lang")),u=c.getAttribute("data-alt-url");if(!n||!o||!u||n===o)return;try{e=localStorage.getItem("lang"),d=sessionStorage.getItem("lang-redirected")}catch{return}if(e=i(e),e&&e!==n&&e!==o){try{localStorage.removeItem("lang")}catch{}e=""}if(d)return;if(t=null,e===n||e===o)t=e;else if(!e&&c.getAttribute("data-auto-lang")==="1"){for(l=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language],a=0;a<l.length&&!t;a++)r=i(l[a]),(r===n||r===o)&&(t=r);t||(t="en")}if(!t||t===n)return;try{s=new URL(u,window.location.href)}catch{return}if(s.protocol!=="https:"&&s.protocol!=="http:"||s.origin!==window.location.origin)return;try{sessionStorage.setItem("lang-redirected","1")}catch{return}window.location.replace(s.href)})()</script><script>(function(){"use strict";var e=null;try{e=localStorage.getItem("theme")}catch{}e!=="dark"&&e!=="light"&&(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})()</script><link rel="stylesheet" href="../../js/vendor/parvus/parvus.min.css"><link rel="stylesheet" href="../../css/default.css"><link rel="icon" type="image/svg+xml" href="../../images/favicon.svg"><link rel="icon" type="image/png" sizes="32x32" href="../../images/favicon-32.png"><link rel="apple-touch-icon" href="../../images/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" title="nezetic.net - Atom 1.0" href="../../atom.xml"><link rel="alternate" type="application/rss+xml" title="nezetic.net - RSS" href="../../rss.xml"><link rel="preload" href="../../fonts/NeZetiCTitle.woff2" as="font" type="font/woff2" crossorigin><div id="main"><nav id="languages"><a href="../../en/posts/2006-07-05-Cooling_Down_SS5/" hreflang="en">English</a>
+<button id="theme-toggle" type="button" aria-label="Changer de thème" title="Changer de thème">
+<img class="icon-moon" src="../../images/theme-moon.svg" alt width="20" height="20">
+<img class="icon-sun" src="../../images/theme-sun.svg" alt width="20" height="20"></button></nav><header id="header"><a href="../../">NeZetiC.net</a></header><aside id="sidebar"><h1 id="navigation">Navigation</h1><p><a href="../../">Accueil</a>
+<a href="../../articles/">Articles</a>
+<a href="../../contact/">Contact</a>
+<a href="../../about/">À propos</a></aside><main id="content"><div id="posts"><ul class="posts"><li class="entry"><h2 class="entrytitle"><a href="../../posts/2006-07-05-Cooling_Down_SS5/">Refroidir une SUN SparcStation 5</a></h2><div class="entrybody"><h2 id="introduction">Introduction</h2><p>Heureux propriétaire d’une SparcStation 5, station SUN de milieu de
+gamme sortie en 1994 et version « light » de la SparcStation 20, j’ai
+rapidement été confronté à un problème de surchauffe, notamment des 2
+disques durs SCSI que peut embarquer la machine.<p>En effet, au format SCA80, les disques sont empilés l’un sur l’autre
+dans un coin de la station plutôt isolée du système de ventilation
+classique.<br><p><a href="../../images/7.jpg"><img src="../../images/thumbs/7.webp" class="img-right" decoding="async" loading="lazy" srcset="../../images/thumbs/7.webp 1x, ../../images/thumbs/7@2x.webp 2x" width="125" height="50" alt="SparcStation 5 vue de face"></a><br>Après avoir fait quelques recherches sur le net, je n’ai trouvé aucune
+solution qui me convienne, l’un de mes critères principaux étant que je
+ne souhaitais pas modifier la machine de manière irréversible.</p><h2 id="solution">Solution</h2><p>Il s’agit d’un simple ventilateur fixé à
+un plateau métallique prévu pour prendre la place du lecteur de CD-ROM.<ul><li>Avantages : Aucune modification de la station<ul><li>Réalisation simple avec quelques outils<li>Aspect esthétique conservé (on peut faire plus propre que moi)<li>Refroidissement efficace</ul><li>Inconvénients :<ul><li>Supprime l’utilisation du CD-ROM<li>Une source de bruit supplémentaire</ul></ul><h2 id="réalisation">Réalisation</h2><p>La plaque métallique utilisée provient d’une station HP et servait à
+occuper un emplacement 5¼. Celle-ci m’a permis de gagner du temps,
+car elle était pratiquement aux bonnes dimensions, mais l’on peut
+réaliser ce bricolage dans une plaque métallique quelconque, à condition
+qu’elle puisse être facile à scier et surtout qu’elle ne <strong>casse pas</strong>
+si on la tord (la mienne est en acier, ce n’était vraiment pas l’idéal
+de ce côté-là).<br><p><a href="../../images/3.jpg"><img src="../../images/thumbs/3.webp" class="img-right" decoding="async" loading="lazy" srcset="../../images/thumbs/3.webp 1x, ../../images/thumbs/3@2x.webp 2x" width="125" height="93" alt="Support de disques avec son ventilateur, dans la SparcStation 5"></a><br>Le support en lui-même fait 178 mm de long pour 147 mm de large, et le
+repli de la grille lui donne une hauteur de 40 mm.<p><a href="../../images/5.jpg"><img src="../../images/thumbs/5.webp" class="img-left" decoding="async" loading="lazy" srcset="../../images/thumbs/5.webp 1x, ../../images/thumbs/5@2x.webp 2x" width="125" height="93" alt="Intérieur de la SparcStation 5 avec le support installé"></a>
+La partie pliée où est fixé le ventilateur a été réalisée dans un étau
+(j’ai fait avec les moyens du bord) après avoir pratiqué 2 entailles de
+20 mm à la scie à métaux. Elle possède un angle relativement important,
+qui dépend des dimensions du ventilateur.<br><p><a href="../../images/4.jpg"><img src="../../images/thumbs/4.webp" class="img-right" decoding="async" loading="lazy" srcset="../../images/thumbs/4.webp 1x, ../../images/thumbs/4@2x.webp 2x" width="125" height="94" alt="Support avec le ventilateur fixé sur la partie pliée"></a><br>Concernant celui-ci, il provient d’un ventirad de Pentium III, et
+mesure 60×60 mm. Il a l’avantage d’être relativement silencieux, mais
+assez puissant pour assurer un flux d’air important. Il est vissé
+solidement à la plaque (après avoir réalisé les trous nécessaires). Pour
+l’alimenter, j’ai utilisé un adaptateur que j’ai branché sur
+l’alimentation du lecteur de CD-ROM.<p><strong>Attention</strong> : ne surtout pas créer de contacts entre le fil noir et le
+fil rouge au moment d’adapter les connectiques. J’utilise pour cela une
+méthode très simple : 2 soudures propres, chacune entourée de ruban
+adhésif, et le tout de nouveau rassemblé avec ce même ruban. On voit sur
+le fil la partie avec du ruban adhésif qui protège mes soudures.<p><a href="../../images/6.jpg"><img src="../../images/6t.jpg" class="img-left" decoding="async" loading="lazy" width="125" height="93" alt="La station une fois le travail terminé"></a><p>La station une fois le travail terminé. Plutôt discret, et je pense
+qu’on peut faire bien plus beau. N’hésitez pas à <a href="../../contact/">me contacter</a>
+pour m’envoyer vos réalisations.<p>Grand merci à Zeta pour son aide ;)<div class="signature"><p>par <em>Cédric TESSIER</em> le <strong><time datetime="2006-07-05">05/07/2006</time></strong></div></div><nav class="postnav"><span class="prev">&#171; <a href="../../posts/2006-06-27-Indy/" rel="prev">L'Indy</a></span>
+<span class="next"><a href="../../posts/2006-07-07-Welcome_ImSekR/" rel="next">Sources d'ImSekR disponibles</a> &#187;</span></nav></ul></div></main><footer id="footer">Site généré par <a href="https://jaspervdj.be/hakyll/">Hakyll</a>.</footer></div><script src="../../js/vendor/parvus/parvus.min.js"></script><script src="../../js/main.js"></script>

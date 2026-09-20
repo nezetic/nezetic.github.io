@@ -1,81 +1,22 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="generator" content="Hakyll"/>
-    <title>NeZetiC.net - Apache: Bot? No, thank you margaret</title>
-    <link rel="stylesheet" type="text/css" href="../../css/default.css"/>
-    <link rel="stylesheet" type="text/css" href="../../css/lightbox.css"/>
-    <link rel="alternate" type="application/atom+xml" title="NeZetiC.net - Atom 1.0" href="../../atom.xml"/>
-    <link rel="alternate" type="application/rss+xml" title="NeZetiC.net - RSS" href="../../rss.xml"/>
-    <link href="https://fonts.googleapis.com/css?family=Finger+Paint" rel="stylesheet" type="text/css"/>
-    <script type="text/javascript" src="../../js/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="../../js/lightbox-2.6.min.js"></script>
-    <script type="text/javascript" src="../../js/main.js"></script>
-  </head>
-  <body>
-    <div id="main">
-      <div id="header">
-        <a href="../../">NeZetiC.net</a>
-      </div>
-      <div id="sidebar">
-        <h1 id="navigation">Navigation</h1>
-        <p>
-          <a href="../../">accueil</a>
-          <a href="../../articles/">articles</a>
-          <a href="../../contact/">contact</a>
-          <a href="../../about/">a propos</a>
-        </p>
-        <h1 id="projects">Projects</h1>
-        <p>
-          <a href="../../projects/tremgen/">TremGen</a>
-          <a href="../../projects/baldr/">Baldr</a>
-          <a href="../../projects/eyebo/">EyeBO</a>
-          <a href="../../projects/imsekr/">ImSekR</a>
-        </p>
-        <p>
-          <a href="../../rss.xml" title="RSS Flux">
-            <img src="../../images/rss-small.png" alt="“logo”"/>
-          </a>
-        </p>
-      </div>
-      <div id="content">
-        <div id="posts">
-          <ul class="posts">
-            <li class="entry">
-              <h2 class="entrytitle">
-                <a href="../../posts/2007-03-03-Apache_Bot_No_Thank_you/">Apache: Bot? No, thank you margaret</a>
-              </h2>
-              <div class="entrybody">
-                <p>Possédant un serveur de développement sous OpenBSD, je suis confronté régulièrement à un afflue d’erreurs dans mes logs d’apache.<br/>
-Il s’agit la plupart du temps de “page not found” générés par des robots qui explorent le net à la recherche d’applications web mal configurées ou plus simplement pas à jour.</p>
-                <p>Ce n’est pas bien gênant, mais si l’on peut l‘éviter, pourquoi ne pas le faire ?<br/>
-                  <br/>
-J’ai donc réalisé un petit <a href="../../files/apablock.rb">script</a> sans prétention qui a pour mission de bannir la vermine.</p>
-                <p>Celui-ci est très simple, ne demande que l’interpréteur ruby d’installé sur la machine, et utilise par défaut Packet Filter (le firewall d’OpenBSD) pour bannir les IP.</p>
-                <p>On peut néanmoins très facilement l’adapter, en changeant les quelques constantes au début du script :</p>
-                <pre>
-                  <code>LOGFILE = "/var/www/logs/error_log"
-BANLOG = "/var/log/banlog"
-FCMD = "pfctl -t bruteforce -T add"
-EXIP = ["10.0.0.0/8","127.0.0.0/8","172.16.0.0/12","192.168.0.0/16"]
-MRATE = "3/10" # n/m : a max of n try in m seconds</code>
-                </pre>
-                <p>Ce n’est certes pas une solution miracle, encore moins révolutionnaire, mais elle a le mérite de marcher et de combler mes attentes.</p>
-                <p>
-                  <a href="../../files/apablock.rb">Download</a>
-                </p>
-                <div class="signature">
-                  <p>par <em>Cédric TESSIER</em> le <strong>03/03/2007</strong></p>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div id="footer">
-                Site généré par <a href="http://jaspervdj.be/hakyll/">hakyll</a>.
-            </div>
-    </div>
-  </body>
-</html>
+<!doctype html><html lang="fr" data-auto-lang data-alt-lang="en" data-alt-url="/en/posts/2007-03-03-Apache_Bot_No_Thank_you/"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Hakyll"><meta name="description" content="Script pour bloquer automatiquement les scans des web robots"><link rel="canonical" href="https://nezetic.net/posts/2007-03-03-Apache_Bot_No_Thank_you/"><link rel="alternate" hreflang="fr" href="https://nezetic.net/posts/2007-03-03-Apache_Bot_No_Thank_you/"><link rel="alternate" hreflang="en" href="https://nezetic.net/en/posts/2007-03-03-Apache_Bot_No_Thank_you/"><link rel="alternate" hreflang="x-default" href="https://nezetic.net/posts/2007-03-03-Apache_Bot_No_Thank_you/"><meta property="og:site_name" content="nezetic.net"><meta property="og:type" content="article"><meta property="og:title" content="Apache: Bot? No, thank you Margaret"><meta property="og:description" content="Script pour bloquer automatiquement les scans des web robots"><meta property="og:url" content="https://nezetic.net/posts/2007-03-03-Apache_Bot_No_Thank_you/"><meta property="og:image" content="https://nezetic.net/images/apple-touch-icon.png"><meta property="og:image:width" content="180"><meta property="og:image:height" content="180"><meta property="og:locale" content="fr_FR"><meta property="og:locale:alternate" content="en_US"><meta property="article:published_time" content="2007-03-03"><meta name="twitter:card" content="summary"><script type="application/ld+json">[{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Cédric TESSIER","url":"https://nezetic.net/about/"},"dateModified":"2007-03-03T12:00:00Z","datePublished":"2007-03-03T12:00:00Z","description":"Script pour bloquer automatiquement les scans des web robots","headline":"Apache: Bot? No, thank you Margaret","inLanguage":"fr","mainEntityOfPage":"https://nezetic.net/posts/2007-03-03-Apache_Bot_No_Thank_you/","url":"https://nezetic.net/posts/2007-03-03-Apache_Bot_No_Thank_you/"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://nezetic.net/","name":"Accueil","position":1},{"@type":"ListItem","item":"https://nezetic.net/posts/","name":"Tous les écrits","position":2},{"@type":"ListItem","item":"https://nezetic.net/posts/2007-03-03-Apache_Bot_No_Thank_you/","name":"Apache: Bot? No, thank you Margaret","position":3}]}]</script><title>Apache: Bot? No, thank you Margaret - nezetic.net</title><script>(function(){"use strict";function i(e){return String(e||"").toLowerCase().split("-")[0]}var e,t,s,a,r,l,d,c=document.documentElement,n=i(c.getAttribute("lang")),o=i(c.getAttribute("data-alt-lang")),u=c.getAttribute("data-alt-url");if(!n||!o||!u||n===o)return;try{e=localStorage.getItem("lang"),d=sessionStorage.getItem("lang-redirected")}catch{return}if(e=i(e),e&&e!==n&&e!==o){try{localStorage.removeItem("lang")}catch{}e=""}if(d)return;if(t=null,e===n||e===o)t=e;else if(!e&&c.getAttribute("data-auto-lang")==="1"){for(l=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language],a=0;a<l.length&&!t;a++)r=i(l[a]),(r===n||r===o)&&(t=r);t||(t="en")}if(!t||t===n)return;try{s=new URL(u,window.location.href)}catch{return}if(s.protocol!=="https:"&&s.protocol!=="http:"||s.origin!==window.location.origin)return;try{sessionStorage.setItem("lang-redirected","1")}catch{return}window.location.replace(s.href)})()</script><script>(function(){"use strict";var e=null;try{e=localStorage.getItem("theme")}catch{}e!=="dark"&&e!=="light"&&(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})()</script><link rel="stylesheet" href="../../js/vendor/parvus/parvus.min.css"><link rel="stylesheet" href="../../css/default.css"><link rel="icon" type="image/svg+xml" href="../../images/favicon.svg"><link rel="icon" type="image/png" sizes="32x32" href="../../images/favicon-32.png"><link rel="apple-touch-icon" href="../../images/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" title="nezetic.net - Atom 1.0" href="../../atom.xml"><link rel="alternate" type="application/rss+xml" title="nezetic.net - RSS" href="../../rss.xml"><link rel="preload" href="../../fonts/NeZetiCTitle.woff2" as="font" type="font/woff2" crossorigin><div id="main"><nav id="languages"><a href="../../en/posts/2007-03-03-Apache_Bot_No_Thank_you/" hreflang="en">English</a>
+<button id="theme-toggle" type="button" aria-label="Changer de thème" title="Changer de thème">
+<img class="icon-moon" src="../../images/theme-moon.svg" alt width="20" height="20">
+<img class="icon-sun" src="../../images/theme-sun.svg" alt width="20" height="20"></button></nav><header id="header"><a href="../../">NeZetiC.net</a></header><aside id="sidebar"><h1 id="navigation">Navigation</h1><p><a href="../../">Accueil</a>
+<a href="../../articles/">Articles</a>
+<a href="../../contact/">Contact</a>
+<a href="../../about/">À propos</a></aside><main id="content"><div id="posts"><ul class="posts"><li class="entry"><h2 class="entrytitle"><a href="../../posts/2007-03-03-Apache_Bot_No_Thank_you/">Apache: Bot? No, thank you Margaret</a></h2><div class="entrybody"><p>Possédant un serveur de développement sous OpenBSD, je suis confronté
+régulièrement à un afflux d’erreurs dans mes logs d’Apache.<br>Il s’agit la plupart du temps de “page not found” générées par des
+robots qui explorent le net à la recherche d’applications web mal
+configurées ou plus simplement pas à jour.<p>Ce n’est pas bien gênant, mais si l’on peut l’éviter, pourquoi ne pas le
+faire ?<br><br>J’ai donc réalisé un petit
+<a href="../../files/apablock.rb">script</a> sans
+prétention qui a pour mission de bannir la vermine.</p><p>Celui-ci est très simple, ne demande que l’interpréteur Ruby installé
+sur la machine, et utilise par défaut Packet Filter (le firewall
+d’OpenBSD) pour bannir les IP.<p>On peut néanmoins très facilement l’adapter, en changeant les quelques
+constantes au début du script :<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cn">LOGFILE</span> <span class="op">=</span> <span class="st">&quot;/var/www/logs/error_log&quot;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cn">BANLOG</span> <span class="op">=</span> <span class="st">&quot;/var/log/banlog&quot;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cn">FCMD</span> <span class="op">=</span> <span class="st">&quot;pfctl -t bruteforce -T add&quot;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cn">EXIP</span> <span class="op">=</span> <span class="kw">[</span><span class="st">&quot;10.0.0.0/8&quot;</span>,<span class="st">&quot;127.0.0.0/8&quot;</span>,<span class="st">&quot;172.16.0.0/12&quot;</span>,<span class="st">&quot;192.168.0.0/16&quot;</span><span class="kw">]</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cn">MRATE</span> <span class="op">=</span> <span class="st">&quot;3/10&quot;</span> <span class="co"># n/m : a max of n tries in m seconds</span></span></code></pre></div><p>Ce n’est certes pas une solution miracle, encore moins révolutionnaire,
+mais elle a le mérite de marcher et de combler mes attentes.<p><a href="../../files/apablock.rb">Download</a><div class="signature"><p>par <em>Cédric TESSIER</em> le <strong><time datetime="2007-03-03">03/03/2007</time></strong></div></div><nav class="postnav"><span class="prev">&#171; <a href="../../posts/2006-09-04-Sparcstation1/" rel="prev">SPARCstation 1</a></span>
+<span class="next"><a href="../../posts/2007-03-28-SpringTime/" rel="next">C'est le printemps !</a> &#187;</span></nav></ul></div></main><footer id="footer">Site généré par <a href="https://jaspervdj.be/hakyll/">Hakyll</a>.</footer></div><script src="../../js/vendor/parvus/parvus.min.js"></script><script src="../../js/main.js"></script>

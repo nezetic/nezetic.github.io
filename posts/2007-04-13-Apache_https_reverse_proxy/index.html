@@ -1,128 +1,65 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="generator" content="Hakyll"/>
-    <title>NeZetiC.net - Apache, https et reverse proxy</title>
-    <link rel="stylesheet" type="text/css" href="../../css/default.css"/>
-    <link rel="stylesheet" type="text/css" href="../../css/lightbox.css"/>
-    <link rel="alternate" type="application/atom+xml" title="NeZetiC.net - Atom 1.0" href="../../atom.xml"/>
-    <link rel="alternate" type="application/rss+xml" title="NeZetiC.net - RSS" href="../../rss.xml"/>
-    <link href="https://fonts.googleapis.com/css?family=Finger+Paint" rel="stylesheet" type="text/css"/>
-    <script type="text/javascript" src="../../js/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="../../js/lightbox-2.6.min.js"></script>
-    <script type="text/javascript" src="../../js/main.js"></script>
-  </head>
-  <body>
-    <div id="main">
-      <div id="header">
-        <a href="../../">NeZetiC.net</a>
-      </div>
-      <div id="sidebar">
-        <h1 id="navigation">Navigation</h1>
-        <p>
-          <a href="../../">accueil</a>
-          <a href="../../articles/">articles</a>
-          <a href="../../contact/">contact</a>
-          <a href="../../about/">a propos</a>
-        </p>
-        <h1 id="projects">Projects</h1>
-        <p>
-          <a href="../../projects/tremgen/">TremGen</a>
-          <a href="../../projects/baldr/">Baldr</a>
-          <a href="../../projects/eyebo/">EyeBO</a>
-          <a href="../../projects/imsekr/">ImSekR</a>
-        </p>
-        <p>
-          <a href="../../rss.xml" title="RSS Flux">
-            <img src="../../images/rss-small.png" alt="“logo”"/>
-          </a>
-        </p>
-      </div>
-      <div id="content">
-        <div id="posts">
-          <ul class="posts">
-            <li class="entry">
-              <h2 class="entrytitle">
-                <a href="../../posts/2007-04-13-Apache_https_reverse_proxy/">Apache, https et reverse proxy</a>
-              </h2>
-              <div class="entrybody">
-                <h2 id="introduction">Introduction</h2>
-                <p>Étant <del>pingre</del> toujours à la recherche de bons plans, je profite d’une offre gratuite pour héberger ce site (chez <a href="http://www.1and1.fr">1and1</a>, société que je ne conseille pas si vous devez payer, pour pleins de raisons qui seraient hors sujets ici).</p>
-                <p>Bref, qui dit gratuité, dit souvent service minimum (bon, même si dans mon cas, ce n’est pas tout à fait vrai).<br/>
-En faite, ce qu’il me manque vraiment, c’est de pouvoir me connecter à mon site en https.</p>
-                <p>Pourquoi ? Simple. J’ai parfois besoin d’accéder à l’espace d’administration depuis des lieux publics (des hotspots par exemple). Et j’avoue que l’idée de taper mon mot de passe en sachant pertinemment que celui-ci va circuler en clair me gène beaucoup (si si, surtout quand il existe un moyen de l‘éviter).</p>
-                <h2 id="une-solution">Une solution</h2>
-                <p>Possédant déjà un serveur personnel sous OpenBSD à la maison (ou home server, ce terme risque de devenir <a href="http://www.journaldugeek.com/index.php?2007/02/28/5920-microsoft-windows-home-server-presentation-et-explications">à la mode</a> d’ici peu…), j’utilise sur celui-ci depuis longtemps le mod_ssl d’apache afin d’avoir un accès https.</p>
-                <p>
-                  <a href="../../images/34.png">
-                    <img src="../../images/34t.png" alt="img_right"/>
-                  </a> L’idée est donc de se servir du mod_proxy pour utiliser mon <em>home server</em> comme une passerelle permettant d’ouvrir une sorte de <em>tunnel</em> “sécurisé” entre mon ordinateur portable et les pages d’administrations.</p>
-                <p>L’exemple qui suit est valable sous OpenBSD. Pour les autres systèmes, les fichiers ne seront pas forcement dans le même répertoire, et les problèmes pourront être différents.</p>
-                <p>Il suffit en théorie de modifier le <strong>httpd.conf</strong> (dans <em>/var/www/conf/</em> ) en activant le mode proxy (si ce n’est pas déjà fait) et rajoutant quelques lignes à la fin du <em>SSL Virtual Host Context</em>.</p>
-                <pre>
-                  <code># caching proxy
-LoadModule proxy_module /usr/lib/apache/modules/libproxy.so
-
-##
-## SSL Virtual Host Context
-##
-&lt;VirtualHost _default_:443>
-#  General setup for the virtual host
-[...]
-
-&lt;IfModule mod_proxy.c>
-      ProxyRequests Off
-      &lt;Directory proxy:*>
-              Order deny,allow
-              Allow from all
-      &lt;/Directory>
-      ProxyPass /textadmin/ http://nezetic.net:80/textpattern/
-      ProxyPassReverse /textadmin/ http://nezetic.net:80/textpattern/
-&lt;/IfModule>
-
-&lt;/VirtualHost</code>
-                </pre>
-                <p>Pour utiliser le reverse proxy, on ouvre la page via http://monhomeserver.net/textadmin/ (le slash final est très important). Et voilà.</p>
-                <p>
-                  <strong>Sauf que</strong>, sous OpenBSD, ceci ne fonctionne pas.<br/>
-En effet, il semble que le fork d’apache de ce merveilleux système soit buggé.<br/>
-Et quoi qu’on fasse, le mod_proxy retourne un malheureux <em>host not found</em>.</p>
-                <p>Après recherche, j’ai compris le problème, et j’ai trouvé une solution (non sans mal, merci Google).</p>
-                <p>Le problème apparait si l’on possède une configuration normale, avec la variable <strong>ServerName</strong> paramétrée comme il se doit. Si on la commente, le reverse proxy fonctionne.</p>
-                <p>Sauf que la commenter, c’est mal.</p>
-                <p>D’où une solution, pour le moins étrange (et à la fois logique, quand on sait que l’apache d’OpenBSD tourne dans une <a href="http://en.wikipedia.org/wiki/Chroot">cage</a>).</p>
-                <p>Il suffit de créer un répertoire <em>etc</em> à la racine de la cage ( <em>/var/www</em> ), puis d’y ajouter un fichier <strong>hosts</strong>, contenant en première ligne l’IP local correspondant au ServerName, et en 2e ligne, l’IP du serveur distant (ici nezetic.net).</p>
-                <pre>
-                  <code>192.168.1.2 monhomeserver.net
-82.165.72.200 nezetic.net www.nezetic.net</code>
-                </pre>
-                <p>Et pouf, tout marche comme par magie (ou presque).</p>
-                <h2 id="conclusion">Conclusion</h2>
-                <p>On peut améliorer le reverse proxy en utilisant un mode d’apache tel que <a href="http://apache.webthing.com/mod_proxy_html/">mod_proxy_html</a> (que je ne conseille pas, il crée une grosse charge et à tendance à modifier un peu trop le code HTML que crache votre serveur), mais dans la plupart des cas, ce que je décris plus haut suffit.</p>
-                <p>Et même si l’utilisation via HTTPS est loin d‘être complètement sûre, elle a le mérite d‘être là, rassurante…</p>
-                <blockquote>
-                  <p>
-                    <strong>Sources &amp; Lectures</strong>
-                    <br/>
-                    <a href="http://www.apachetutor.org/admin/reverseproxies">www.apachetutor.org/admin/reverseproxies</a>
-                    <br/>
-                    <a href="http://hsc.fr/ressources/breves/pourquoi-relais-inverse.html">hsc.fr/ressources/breves/pourquoi-relais-inverse.html</a>
-                    <br/>
-                    <a href="http://httpd.apache.org/docs/1.3/mod/mod_proxy.html">httpd.apache.org/docs/1.3/mod/mod_proxy.html</a>
-                  </p>
-                </blockquote>
-                <div class="signature">
-                  <p>par <em>Cédric TESSIER</em> le <strong>13/04/2007</strong></p>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div id="footer">
-                Site généré par <a href="http://jaspervdj.be/hakyll/">hakyll</a>.
-            </div>
-    </div>
-  </body>
-</html>
+<!doctype html><html lang="fr" data-auto-lang data-alt-lang="en" data-alt-url="/en/posts/2007-04-13-Apache_https_reverse_proxy/"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Hakyll"><meta name="description" content="Reverse proxy HTTPS avec Apache"><link rel="canonical" href="https://nezetic.net/posts/2007-04-13-Apache_https_reverse_proxy/"><link rel="alternate" hreflang="fr" href="https://nezetic.net/posts/2007-04-13-Apache_https_reverse_proxy/"><link rel="alternate" hreflang="en" href="https://nezetic.net/en/posts/2007-04-13-Apache_https_reverse_proxy/"><link rel="alternate" hreflang="x-default" href="https://nezetic.net/posts/2007-04-13-Apache_https_reverse_proxy/"><meta property="og:site_name" content="nezetic.net"><meta property="og:type" content="article"><meta property="og:title" content="Apache, https et reverse proxy"><meta property="og:description" content="Reverse proxy HTTPS avec Apache"><meta property="og:url" content="https://nezetic.net/posts/2007-04-13-Apache_https_reverse_proxy/"><meta property="og:image" content="https://nezetic.net/images/34.png"><meta property="og:image:width" content="725"><meta property="og:image:height" content="738"><meta property="og:locale" content="fr_FR"><meta property="og:locale:alternate" content="en_US"><meta property="article:published_time" content="2007-04-13"><meta name="twitter:card" content="summary_large_image"><script type="application/ld+json">[{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Cédric TESSIER","url":"https://nezetic.net/about/"},"dateModified":"2007-04-13T12:00:00Z","datePublished":"2007-04-13T12:00:00Z","description":"Reverse proxy HTTPS avec Apache","headline":"Apache, https et reverse proxy","image":"https://nezetic.net/images/34.png","inLanguage":"fr","mainEntityOfPage":"https://nezetic.net/posts/2007-04-13-Apache_https_reverse_proxy/","url":"https://nezetic.net/posts/2007-04-13-Apache_https_reverse_proxy/"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://nezetic.net/","name":"Accueil","position":1},{"@type":"ListItem","item":"https://nezetic.net/posts/","name":"Tous les écrits","position":2},{"@type":"ListItem","item":"https://nezetic.net/posts/2007-04-13-Apache_https_reverse_proxy/","name":"Apache, https et reverse proxy","position":3}]}]</script><title>Apache, https et reverse proxy - nezetic.net</title><script>(function(){"use strict";function i(e){return String(e||"").toLowerCase().split("-")[0]}var e,t,s,a,r,l,d,c=document.documentElement,n=i(c.getAttribute("lang")),o=i(c.getAttribute("data-alt-lang")),u=c.getAttribute("data-alt-url");if(!n||!o||!u||n===o)return;try{e=localStorage.getItem("lang"),d=sessionStorage.getItem("lang-redirected")}catch{return}if(e=i(e),e&&e!==n&&e!==o){try{localStorage.removeItem("lang")}catch{}e=""}if(d)return;if(t=null,e===n||e===o)t=e;else if(!e&&c.getAttribute("data-auto-lang")==="1"){for(l=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language],a=0;a<l.length&&!t;a++)r=i(l[a]),(r===n||r===o)&&(t=r);t||(t="en")}if(!t||t===n)return;try{s=new URL(u,window.location.href)}catch{return}if(s.protocol!=="https:"&&s.protocol!=="http:"||s.origin!==window.location.origin)return;try{sessionStorage.setItem("lang-redirected","1")}catch{return}window.location.replace(s.href)})()</script><script>(function(){"use strict";var e=null;try{e=localStorage.getItem("theme")}catch{}e!=="dark"&&e!=="light"&&(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})()</script><link rel="stylesheet" href="../../js/vendor/parvus/parvus.min.css"><link rel="stylesheet" href="../../css/default.css"><link rel="icon" type="image/svg+xml" href="../../images/favicon.svg"><link rel="icon" type="image/png" sizes="32x32" href="../../images/favicon-32.png"><link rel="apple-touch-icon" href="../../images/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" title="nezetic.net - Atom 1.0" href="../../atom.xml"><link rel="alternate" type="application/rss+xml" title="nezetic.net - RSS" href="../../rss.xml"><link rel="preload" href="../../fonts/NeZetiCTitle.woff2" as="font" type="font/woff2" crossorigin><div id="main"><nav id="languages"><a href="../../en/posts/2007-04-13-Apache_https_reverse_proxy/" hreflang="en">English</a>
+<button id="theme-toggle" type="button" aria-label="Changer de thème" title="Changer de thème">
+<img class="icon-moon" src="../../images/theme-moon.svg" alt width="20" height="20">
+<img class="icon-sun" src="../../images/theme-sun.svg" alt width="20" height="20"></button></nav><header id="header"><a href="../../">NeZetiC.net</a></header><aside id="sidebar"><h1 id="navigation">Navigation</h1><p><a href="../../">Accueil</a>
+<a href="../../articles/">Articles</a>
+<a href="../../contact/">Contact</a>
+<a href="../../about/">À propos</a></aside><main id="content"><div id="posts"><ul class="posts"><li class="entry"><h2 class="entrytitle"><a href="../../posts/2007-04-13-Apache_https_reverse_proxy/">Apache, https et reverse proxy</a></h2><div class="entrybody"><h2 id="introduction">Introduction</h2><p>Étant <del>pingre</del> toujours à la recherche de bons plans, je profite d’une
+offre gratuite pour héberger ce site (chez <a href="http://www.1and1.fr">1and1</a>,
+société que je ne conseille pas si vous devez payer, pour plein de
+raisons qui seraient hors sujet ici).<p>Bref, qui dit gratuité, dit souvent service minimum (bon, même si dans
+mon cas, ce n’est pas tout à fait vrai).<br>En fait, ce qu’il me manque vraiment, c’est de pouvoir me connecter à
+mon site en https.</p><p>Pourquoi ? Simple. J’ai parfois besoin d’accéder à l’espace d’administration
+depuis des lieux publics (des hotspots par exemple). Et j’avoue que l’idée
+de taper mon mot de passe en sachant pertinemment que celui-ci va circuler
+en clair me gêne beaucoup (si si, surtout quand il existe un moyen de l’éviter).<h2 id="une-solution">Une solution</h2><p>Possédant déjà un serveur personnel sous OpenBSD à la maison (ou home
+server, ce terme risque de devenir <a href="http://www.journaldugeek.com/index.php?2007/02/28/5920-microsoft-windows-home-server-presentation-et-explications">à la
+mode</a>
+d’ici peu…), j’utilise sur celui-ci depuis longtemps le mod_ssl
+d’Apache afin d’avoir un accès https.<p><a href="../../images/34.png"><img src="../../images/thumbs/34.webp" class="img-right" decoding="async" loading="lazy" srcset="../../images/thumbs/34.webp 1x, ../../images/thumbs/34@2x.webp 2x" width="125" height="128" alt="Schéma : le serveur maison sert de passerelle HTTPS vers le serveur web"></a>
+L’idée est donc de se servir du mod_proxy pour utiliser mon <em>home
+server</em> comme une passerelle permettant d’ouvrir une sorte de <em>tunnel</em>
+“sécurisé” entre mon ordinateur portable et les pages d’administration.<p>L’exemple qui suit est valable sous OpenBSD. Pour les autres systèmes,
+les fichiers ne seront pas forcément dans le même répertoire, et les
+problèmes pourront être différents.<p>Il suffit en théorie de modifier le <strong>httpd.conf</strong> (dans
+<em>/var/www/conf/</em> ) en activant le mode proxy (si ce n’est pas déjà fait)
+et en rajoutant quelques lignes à la fin du <em>SSL Virtual Host Context</em>.<div class="sourceCode" id="cb1"><pre class="sourceCode apache"><code class="sourceCode apache"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># caching proxy</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>LoadModule<span class="st"> proxy_module /usr/lib/apache/modules/libproxy.so</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">##</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">## SSL Virtual Host Context</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">##</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;VirtualHost</span><span class="at"> _default_:443</span><span class="fu">&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#  General setup for the virtual host</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>[...]</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;IfModule</span><span class="at"> mod_proxy.c</span><span class="fu">&gt;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>      <span class="ex">ProxyRequests</span><span class="ch"> </span><span class="kw">Off</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">&lt;Directory</span><span class="at"> proxy:*</span><span class="fu">&gt;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>              <span class="ex">Order</span><span class="ch"> </span><span class="kw">deny,allow</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>              Allow<span class="st"> from all</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>      <span class="fu">&lt;/Directory&gt;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>      ProxyPass<span class="st"> /textadmin/ http://nezetic.net:80/textpattern/</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>      ProxyPassReverse<span class="st"> /textadmin/ http://nezetic.net:80/textpattern/</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;/IfModule&gt;</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;/VirtualHost&gt;</span></span></code></pre></div><p>Pour utiliser le reverse proxy, on ouvre la page via
+http://monhomeserver.net/textadmin/ (le slash final est très important).
+Et voilà.<p><strong>Sauf que</strong>, sous OpenBSD, ceci ne fonctionne pas.<br>En effet, il semble que le fork d’Apache de ce merveilleux système soit
+buggé.<br>Et quoi qu’on fasse, le mod_proxy retourne un malheureux <em>host not
+found</em>.<p>Après recherche, j’ai compris le problème, et j’ai trouvé une solution
+(non sans mal, merci Google).<p>Le problème apparait si l’on possède une configuration normale, avec la
+variable <strong>ServerName</strong> paramétrée comme il se doit. Si on la commente,
+le reverse proxy fonctionne.<p>Sauf que la commenter, c’est mal.<p>D’où une solution, pour le moins étrange (et à la fois logique, quand on
+sait que l’Apache d’OpenBSD tourne dans une
+<a href="https://en.wikipedia.org/wiki/Chroot">cage</a>).<p>Il suffit de créer un répertoire <em>etc</em> à la racine de la cage (
+<em>/var/www</em> ), puis d’y ajouter un fichier <strong>hosts</strong>, contenant en
+première ligne l’IP locale correspondant au ServerName, et en 2e ligne,
+l’IP du serveur distant (ici nezetic.net).<pre><code>192.168.1.2 monhomeserver.net
+82.165.72.200 nezetic.net www.nezetic.net</code></pre><p>Et pouf, tout marche comme par magie (ou presque).<h2 id="conclusion">Conclusion</h2><p>On peut améliorer le reverse proxy en utilisant un mode d’Apache tel que
+<a href="http://apache.webthing.com/mod_proxy_html/">mod_proxy_html</a> (que je
+ne conseille pas, il crée une grosse charge et a tendance à modifier un
+peu trop le code HTML que crache votre serveur), mais dans la plupart
+des cas, ce que je décris plus haut suffit.<p>Et même si l’utilisation via HTTPS est loin d’être complètement sûre,
+elle a le mérite d’être là, rassurante…<blockquote><p><strong>Sources & Lectures</strong><br><a href="http://www.apachetutor.org/admin/reverseproxies">www.apachetutor.org/admin/reverseproxies</a><br><a href="https://web.archive.org/web/20070221232325/http://www.hsc.fr/ressources/breves/pourquoi-relais-inverse.html">hsc.fr/ressources/breves/pourquoi-relais-inverse.html</a><br><a href="https://web.archive.org/web/20080201181714/http://httpd.apache.org/docs/1.3/mod/mod_proxy.html">httpd.apache.org/docs/1.3/mod/mod_proxy.html</a></blockquote><div class="signature"><p>par <em>Cédric TESSIER</em> le <strong><time datetime="2007-04-13">13/04/2007</time></strong></div></div><nav class="postnav"><span class="prev">&#171; <a href="../../posts/2007-03-28-SpringTime/" rel="prev">C'est le printemps !</a></span>
+<span class="next"><a href="../../posts/2007-07-16-My_precious/" rel="next">My precious...</a> &#187;</span></nav></ul></div></main><footer id="footer">Site généré par <a href="https://jaspervdj.be/hakyll/">Hakyll</a>.</footer></div><script src="../../js/vendor/parvus/parvus.min.js"></script><script src="../../js/main.js"></script>

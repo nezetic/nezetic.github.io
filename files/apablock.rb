@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 # Apache Bot Blocker v0.1
-# NeZetiC (nezetic.info)
+# nezetic (nezetic.net)
 
 require 'ipaddr'
 require 'time'
